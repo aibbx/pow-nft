@@ -87,11 +87,11 @@ const PremiumNFTAvatar = ({
         <div 
           className={cn(
             sizes[size],
-            "relative overflow-hidden bg-white",
+            "relative overflow-hidden bg-white"
           )}
           style={{
             clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-            border: "3px solid #F0B90B",
+            border: "4px solid #F0B90B",
           }}
         >
           {/* Inner content with clean styling */}

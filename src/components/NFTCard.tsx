@@ -50,6 +50,9 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
   
   const badge = getBadgeDetails();
   const actualTier = tier || Math.floor(Math.log10(amount / 10000)) + 7;
+
+  // Determine if we should use a filled gold hexagon for higher tiers
+  const useFilledHexagon = amount >= 10000000;
   
   return (
     <motion.div 
@@ -76,32 +79,49 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
           
           {/* Main amount display - hexagonal avatar with clear gold border */}
           <div className="flex flex-col items-center justify-center py-8 mb-4">
-            <div className="relative">
-              <div 
-                className="h-32 w-32 bg-white overflow-hidden"
-                style={{
-                  clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-                  border: "3px solid #F0B90B",
-                }}
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
-                  <span className="font-display text-2xl font-bold text-wealth-gold">
-                    {formattedAmount}
-                  </span>
-                  <span className="text-xs text-wealth-gold/80">USDT</span>
+            {useFilledHexagon ? (
+              <div className="relative">
+                <div 
+                  className="h-32 w-32 overflow-hidden"
+                  style={{
+                    clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                    backgroundColor: "#F0B90B",
+                  }}
+                >
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <span className="font-display text-2xl font-bold text-white">
+                      {formattedAmount}
+                    </span>
+                    <span className="text-xs text-white/80">USDT</span>
+                  </div>
                 </div>
-              </div>
-              
-              {/* Badge for higher tier NFTs with clean styling */}
-              {amount >= 1000000 && (
+                
+                {/* Badge for higher tier NFTs with clean styling */}
                 <div className="absolute -top-2 -right-2 p-1 rounded-full bg-white border-2 border-wealth-gold">
-                  {amount >= 10000000 ? 
+                  {amount >= 100000000 ? 
                     <Diamond className="h-4 w-4 text-wealth-gold" /> : 
                     <Crown className="h-4 w-4 text-wealth-gold" />
                   }
                 </div>
-              )}
-            </div>
+              </div>
+            ) : (
+              <div className="relative">
+                <div 
+                  className="h-32 w-32 bg-white overflow-hidden"
+                  style={{
+                    clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                    border: "4px solid #F0B90B",
+                  }}
+                >
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
+                    <span className="font-display text-2xl font-bold text-wealth-gold">
+                      {formattedAmount}
+                    </span>
+                    <span className="text-xs text-wealth-gold/80">USDT</span>
+                  </div>
+                </div>
+              </div>
+            )}
             
             {/* NFT name */}
             <div className="mt-4 font-medium text-center">
