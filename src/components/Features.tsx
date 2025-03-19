@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { 
   WalletIcon, 
   Package, 
-  BarChart3, 
   DollarSign, 
   ShieldCheck, 
   Link
@@ -22,11 +21,6 @@ const Features = () => {
       icon: <Package className="h-6 w-6" />,
       title: "Verifiable NFTs",
       description: "Each NFT is verifiably backed by USDT deposits, providing proof of your wealth on-chain."
-    },
-    {
-      icon: <BarChart3 className="h-6 w-6" />,
-      title: "Earn Yield",
-      description: "Your deposited assets are put to work in DeFi protocols, generating additional returns."
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
