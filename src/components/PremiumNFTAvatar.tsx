@@ -74,6 +74,15 @@ const PremiumNFTAvatar = ({
     return "premium-crystal-gradient"; // Default
   };
   
+  // Get tier label based on amount
+  const getTierLabel = () => {
+    if (amount >= 100000000) return "Tier A10";
+    if (amount >= 10000000) return "Tier A9";
+    if (amount >= 1000000) return "Tier A8";
+    if (amount >= 100000) return "Tier A7";
+    return "Tier A" + Math.floor(Math.log10(amount / 10000) + 6);
+  };
+  
   const MotionComponent = animated ? motion.div : "div";
   
   return (

@@ -164,7 +164,7 @@ const NFTCardVisualization = () => {
               </div>
               <div className="flex items-center bg-wealth-gold/10 px-3 py-1 rounded-full border border-wealth-gold/20">
                 <Diamond className="h-3 w-3 mr-1 text-wealth-gold" />
-                <span className="text-xs font-medium">TIER 10</span>
+                <span className="text-xs font-medium">TIER A10</span>
               </div>
             </div>
             
