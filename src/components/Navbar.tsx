@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { WalletIcon, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import WalletConnectButton from './WalletConnectButton';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,12 +37,7 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <NavLinks />
-          <Button 
-            className="bg-gold-gradient text-black font-medium hover:opacity-90 transition-opacity"
-          >
-            <WalletIcon className="mr-2 h-4 w-4" />
-            Connect Wallet
-          </Button>
+          <WalletConnectButton variant="fancy" />
         </nav>
         
         {/* Mobile Navigation Toggle */}
@@ -60,12 +54,7 @@ const Navbar = () => {
         <div className="md:hidden pt-2 pb-4 px-4 bg-white/95 backdrop-blur-md animate-fade-in">
           <nav className="flex flex-col space-y-4">
             <NavLinks mobile />
-            <Button 
-              className="bg-gold-gradient text-black font-medium hover:opacity-90 transition-opacity w-full"
-            >
-              <WalletIcon className="mr-2 h-4 w-4" />
-              Connect Wallet
-            </Button>
+            <WalletConnectButton variant="fancy" className="w-full" />
           </nav>
         </div>
       )}

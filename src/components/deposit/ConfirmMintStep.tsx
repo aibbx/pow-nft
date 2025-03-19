@@ -9,6 +9,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Wallet } from "lucide-react";
 import NFTCard from "@/components/NFTCard";
+import { useWallet } from '@/contexts/WalletContext';
+import WalletConnectButton from '@/components/WalletConnectButton';
 
 interface ConfirmMintStepProps {
   amount: number;
@@ -17,6 +19,8 @@ interface ConfirmMintStepProps {
 }
 
 const ConfirmMintStep = ({ amount, handlePreviousStep, handleMint }: ConfirmMintStepProps) => {
+  const { isConnected } = useWallet();
+
   return (
     <>
       <DialogHeader>
@@ -82,12 +86,20 @@ const ConfirmMintStep = ({ amount, handlePreviousStep, handleMint }: ConfirmMint
         >
           Back
         </Button>
-        <Button 
-          onClick={handleMint}
-          className="sm:flex-1 bg-gold-gradient text-black font-medium hover:opacity-90 transition-opacity"
-        >
-          Mint NFT
-        </Button>
+        
+        {isConnected ? (
+          <Button 
+            onClick={handleMint}
+            className="sm:flex-1 bg-gold-gradient text-black font-medium hover:opacity-90 transition-opacity"
+          >
+            Mint NFT
+          </Button>
+        ) : (
+          <WalletConnectButton 
+            variant="fancy"
+            className="sm:flex-1"
+          />
+        )}
       </DialogFooter>
     </>
   );
