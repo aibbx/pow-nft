@@ -154,51 +154,25 @@
     @apply border-wealth-gold/30 focus:border-wealth-gold focus:ring-wealth-gold/20;
   }
   
-  /* Enhanced Ultra-Premium Hexagon implementation */
-  .hexagon-shape {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  /* Clean modern hexagon implementation */
+  .premium-hexagon {
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
   }
   
-  /* Improved crisp hexagon with precise rendering */
-  .hex-crisp {
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  /* Improved content alignment */
-  .hex-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* New ultra-luxury pattern overlay */
-  .pattern-luxury {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F0B90B' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  
-  /* Enhanced diamond reflection effect */
-  .diamond-reflection {
+  /* Simple clean reflection effect */
+  .premium-reflection {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      125deg,
+      135deg,
       transparent 0%,
-      rgba(255, 255, 255, 0) 35%,
-      rgba(255, 255, 255, 0.4) 50%,
-      rgba(255, 255, 255, 0) 65%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 60%,
       transparent 100%
     );
-    animation: shine 3s infinite linear;
+    animation: shine 4s infinite linear;
   }
   
   @keyframes shine {
@@ -216,60 +190,24 @@
     animation: spin-reverse 15s linear infinite;
   }
   
-  /* Enhanced Premium gradients - ultra luxury finishes */
-  .premium-gradient-default {
-    background: linear-gradient(135deg, #F0B90B 10%, #FFDD65 50%, #F0B90B 60%, #FFF3A3 80%, #F0B90B 100%);
+  /* Premium gradients - clean luxury finishes */
+  .premium-simple-gradient {
+    background: linear-gradient(135deg, #f1f1f1 0%, #ffffff 100%);
   }
   
-  .premium-gradient-100k {
-    background: linear-gradient(135deg, #F0B90B 0%, #F8D33A 100%);
+  .premium-silver-gradient {
+    background: linear-gradient(135deg, #C8C8C9 0%, #F1F1F1 100%);
   }
   
-  .premium-gradient-1m {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 30%, #F0B90B 70%, #FFD700 100%);
+  .premium-gold-gradient {
+    background: linear-gradient(135deg, #F0B90B 0%, #FFDD65 100%);
   }
   
-  /* Enhanced luxury gradient with multiple color stops */
-  .luxury-gradient {
-    background: linear-gradient(135deg, 
-      #B67F00 0%, 
-      #E2A100 15%, 
-      #F0B90B 30%, 
-      #FFD700 50%, 
-      #F0B90B 70%, 
-      #E2A100 85%, 
-      #B67F00 100%
-    );
-    box-shadow: 0 0 20px rgba(240, 185, 11, 0.4);
-  }
-  
-  /* Ultra luxury gradient with rich gold tones */
-  .ultra-luxury-gradient {
-    background: linear-gradient(135deg,
-      #8B6608 0%,
-      #B67F00 10%,
-      #E2A100 25%,
-      #F0B90B 40%,
-      #FFD700 50%,
-      #F0B90B 60%,
-      #E2A100 75%,
-      #B67F00 90%,
-      #8B6608 100%
-    );
-    box-shadow: 0 0 25px rgba(240, 185, 11, 0.5);
-  }
-  
-  /* Enhanced shadows for ultra premium elements */
-  .shadow-premium-ultra {
+  /* Enhanced shadows for premium elements */
+  .shadow-premium {
     box-shadow: 
-      0 10px 30px -5px rgba(240, 185, 11, 0.25),
-      0 0 15px rgba(240, 185, 11, 0.15),
-      0 0 5px rgba(255, 255, 255, 0.2) inset;
-  }
-  
-  /* Glow effect for premium elements */
-  .shadow-premium-glow {
-    box-shadow: 0 0 15px 5px rgba(240, 185, 11, 0.3);
+      0 10px 30px -10px rgba(0, 0, 0, 0.05),
+      0 0 10px rgba(240, 185, 11, 0.1);
   }
   
   @keyframes spin-slow {
@@ -286,7 +224,7 @@
     100% { background-position: -200% 0; }
   }
   
-  /* Improved diamond facet reflections */
+  /* Simple facet reflections */
   .diamond-facet {
     position: relative;
     overflow: hidden;
@@ -302,10 +240,10 @@
     background: linear-gradient(
       45deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.3) 50%,
       transparent 100%
     );
-    animation: rotate-facet 6s linear infinite;
+    animation: rotate-facet 8s linear infinite;
   }
   
   @keyframes rotate-facet {

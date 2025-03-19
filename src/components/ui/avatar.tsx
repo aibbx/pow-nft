@@ -11,7 +11,7 @@ const Avatar = React.forwardRef<
   }
 >(({ className, shape = "circle", ...props }, ref) => {
   const shapeClass = shape === "square" ? "rounded-md" :
-                     shape === "hexagon" ? "hexagon-shape" :
+                     shape === "hexagon" ? "premium-hexagon" :
                      "rounded-full";
                      
   return (

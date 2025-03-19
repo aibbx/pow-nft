@@ -52,10 +52,10 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
   
   // Get gradient class based on amount with enhanced luxury gradients
   const getGradient = () => {
-    if (amount >= 100000000) return "bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700";
-    if (amount >= 10000000) return "bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600";
-    if (amount >= 1000000) return "bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500";
-    return "bg-gradient-to-br from-amber-200 via-yellow-300 to-amber-400";
+    if (amount >= 100000000) return "premium-gold-gradient";
+    if (amount >= 10000000) return "premium-gold-gradient";
+    if (amount >= 1000000) return "premium-silver-gradient";
+    return "premium-simple-gradient";
   };
   
   const badge = getBadgeDetails();
@@ -67,7 +67,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
       transition={{ type: "spring", stiffness: 300 }}
       className={cn("", className)}
     >
-      <Card className="overflow-hidden border-wealth-gold/30 shadow-lg hover:shadow-premium group transition-all duration-300 bg-white relative">
+      <Card className="overflow-hidden border-wealth-gold/20 shadow-premium group transition-all duration-300 bg-white relative">
         {/* Top gradient line with enhanced shine */}
         <div className="h-1.5 w-full bg-gold-gradient relative overflow-hidden">
           <div className="absolute inset-0 diamond-facet"></div>
@@ -108,38 +108,27 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
               <Avatar 
                 shape="hexagon" 
                 className={cn(
-                  "h-32 w-32 border-2 border-wealth-gold/40 rotate-90 shadow-premium overflow-hidden", 
+                  "h-32 w-32 border-2 border-wealth-gold/40 shadow-premium overflow-hidden premium-hexagon", 
                   getGradient()
                 )}
               >
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white -rotate-90 backdrop-blur-sm">
-                  <span className="font-display text-2xl font-bold drop-shadow-md">{formattedAmount}</span>
-                  <span className="text-xs">USDT</span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white backdrop-blur-none bg-white">
+                  <span className="font-display text-2xl font-bold text-wealth-gold">{formattedAmount}</span>
+                  <span className="text-xs text-wealth-dark">USDT</span>
                 </div>
                 
-                {/* Add decorative corner elements */}
-                <div className="absolute top-0 right-0 w-6 h-6 bg-white/10 rotate-45"></div>
-                <div className="absolute bottom-0 left-0 w-6 h-6 bg-white/10 rotate-45"></div>
-                
-                {/* Diamond facet reflection for higher tier NFTs */}
-                {amount >= 10000000 && (
-                  <div className="absolute inset-0 diamond-facet"></div>
-                )}
+                {/* Simple reflective effect */}
+                <div className="absolute inset-0 premium-reflection"></div>
               </Avatar>
               
               {/* Premium badge for higher tier NFTs */}
               {amount >= 1000000 && (
-                <div className="absolute -top-2 -right-2 bg-gold-gradient p-1 rounded-full shadow-premium diamond-facet">
+                <div className="absolute -top-2 -right-2 bg-gold-gradient p-1 rounded-full shadow-premium">
                   {amount >= 10000000 ? 
                     <Diamond className="h-4 w-4 text-black" /> : 
                     <Crown className="h-4 w-4 text-black" />
                   }
                 </div>
-              )}
-              
-              {/* Additional luxury elements for highest tier */}
-              {amount >= 100000000 && (
-                <div className="absolute -inset-1 border border-dashed border-wealth-gold/40 rounded-full animate-spin-slow"></div>
               )}
             </div>
             
