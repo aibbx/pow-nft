@@ -82,55 +82,77 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Glow effect behind avatar */}
+      {/* Enhanced glow effect behind avatar */}
       <div className={cn(
-        "absolute inset-0 blur-md opacity-70 -z-10 rounded-full",
+        "absolute inset-0 blur-lg opacity-70 -z-10 rounded-full",
         getGradient()
       )} />
       
-      {/* Animated sparkling effect */}
+      {/* Enhanced sparkling effect */}
       {animated && (
         <>
-          <div className="absolute -inset-1 opacity-20 blur-sm bg-white rounded-full animate-pulse"></div>
-          <div className="absolute -inset-4 opacity-10 blur-md bg-white rounded-full animate-pulse delay-300"></div>
+          <div className="absolute -inset-1 opacity-30 blur-sm bg-white rounded-full animate-pulse"></div>
+          <div className="absolute -inset-4 opacity-20 blur-lg bg-white rounded-full animate-pulse delay-300"></div>
+          <div className="absolute -inset-2 opacity-10 blur-md bg-gold-gradient rounded-full animate-pulse delay-500"></div>
         </>
       )}
       
-      {/* Hexagonal avatar */}
+      {/* Hexagonal avatar with enhanced styling */}
       <div className="relative">
         <Avatar 
           shape="hexagon"
           className={cn(
             sizes[size],
-            "border-2 overflow-hidden hexagon-container rotate-90 shadow-xl",
+            "border-2 overflow-hidden hexagon-container rotate-90 shadow-premium",
             getGradient()
           )}
         >
-          {/* Inner content - showing the amount */}
+          {/* Inner content with improved styling */}
           <div className={cn(
             "absolute inset-0 flex flex-col items-center justify-center font-display -rotate-90",
-            "bg-wealth-light/95"
+            "backdrop-blur-sm bg-wealth-light/90 border border-wealth-gold/10" // Added glass effect
           )}>
             <span className={cn(
-              "font-bold bg-clip-text text-transparent",
+              "font-bold bg-clip-text text-transparent drop-shadow-sm",
               fontSizes[size],
               getGradient()
             )}>
               {formattedAmount}
             </span>
-            <span className="text-xs text-wealth-muted">USDT</span>
+            <span className="text-xs text-wealth-gold/80 font-medium">USDT</span>
           </div>
+          
+          {/* Decorative corner elements */}
+          <div className="absolute top-0 right-0 w-4 h-4 bg-gold-gradient opacity-30 rotate-45"></div>
+          <div className="absolute bottom-0 left-0 w-4 h-4 bg-gold-gradient opacity-30 rotate-45"></div>
         </Avatar>
         
-        {/* Verification badge */}
+        {/* Enhanced verification badge */}
         <div className={cn(
-          "absolute bg-white rounded-full p-0.5 shadow-md",
+          "absolute bg-white rounded-full p-0.5 shadow-premium",
           verifiedBadgeSizes[size]
         )}>
-          <div className={cn("rounded-full", getGradient())}>
+          <div className={cn(
+            "rounded-full p-0.5",
+            getGradient(),
+            "border border-white/40" // Added subtle border
+          )}>
             {getBadgeIcon()}
           </div>
         </div>
+        
+        {/* New decorative elements - small gold dots */}
+        {amount >= 10000000 && (
+          <>
+            <div className="absolute top-1/2 -left-1 w-1.5 h-1.5 rounded-full bg-gold-gradient"></div>
+            <div className="absolute top-1/2 -right-1 w-1.5 h-1.5 rounded-full bg-gold-gradient"></div>
+          </>
+        )}
+        
+        {/* Extra premium effect for high value avatars */}
+        {amount >= 100000000 && (
+          <div className="absolute -inset-2 border-2 border-dashed border-wealth-gold/20 rounded-full animate-spin-slow"></div>
+        )}
       </div>
     </MotionComponent>
   );

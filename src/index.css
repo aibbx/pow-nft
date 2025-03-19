@@ -155,7 +155,7 @@
     @apply border-wealth-gold/30 focus:border-wealth-gold focus:ring-wealth-gold/20;
   }
   
-  /* Hexagon shape */
+  /* Enhanced Hexagon shape with better clipping */
   .hexagon-shape {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
@@ -165,7 +165,7 @@
     overflow: hidden;
   }
   
-  /* Premium gradients based on amount */
+  /* Premium gradients based on amount - enhanced for more luxury */
   .premium-gradient-default {
     @apply bg-gold-gradient;
   }
@@ -174,16 +174,59 @@
     background: linear-gradient(135deg, #F0B90B 0%, #F8D33A 100%);
   }
   
-  .premium-gradient-500k {
-    background: linear-gradient(135deg, #F0B90B 0%, #E2A100 50%, #FFD700 100%);
-  }
-  
   .premium-gradient-1m {
     background: linear-gradient(135deg, #FFD700 0%, #FFA500 30%, #F0B90B 70%, #FFD700 100%);
+  }
+  
+  .premium-gradient-10m {
+    background: linear-gradient(135deg, #E2A100 0%, #F0B90B 40%, #FFD700 60%, #F0B90B 80%, #E2A100 100%);
+    box-shadow: 0 0 15px rgba(240, 185, 11, 0.4);
+  }
+  
+  .premium-gradient-100m {
+    background: linear-gradient(135deg, #B67F00 0%, #E2A100 20%, #F0B90B 40%, #FFD700 60%, #F0B90B 80%, #B67F00 100%);
+    box-shadow: 0 0 20px rgba(240, 185, 11, 0.5);
+  }
+  
+  /* Add new slow spin animation */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
   }
   
   @keyframes shimmer {
     0% { background-position: 200% 0; }
     100% { background-position: -200% 0; }
+  }
+  
+  /* Add diamond facet reflections */
+  .diamond-facet {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .diamond-facet::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    animation: rotate-facet 6s linear infinite;
+  }
+  
+  @keyframes rotate-facet {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }
