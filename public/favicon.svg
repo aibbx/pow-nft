@@ -1,13 +1,11 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Hexagon Shape -->
   <polygon 
     points="25,0 75,0 100,50 75,100 25,100 0,50" 
-    fill="white"
-    stroke="#F0B90B"
+    fill="transparent"
+    stroke="#E6B325"
     stroke-width="5"
   />
-  <!-- Dollar Sign -->
   <text 
     x="50" 
     y="62" 
@@ -15,5 +13,5 @@
     font-weight="bold" 
     font-size="40" 
     text-anchor="middle" 
-    fill="#F0B90B">$</text>
+    fill="#E6B325">$</text>
 </svg>

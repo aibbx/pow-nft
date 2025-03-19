@@ -32,44 +32,30 @@ const GoldHexagon: React.FC<GoldHexagonProps> = ({
   return (
     <div className="relative">
       <div className={`relative ${sizeClasses[size]}`}>
-        {filled ? (
-          // Filled gold hexagon
-          <div
-            className="w-full h-full"
-            style={{
-              clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-              backgroundColor: "#F0B90B",
-            }}
-          >
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div className="text-center">
-                <div className={`font-display ${textSizes[size]} font-bold text-white`}>
-                  {value}
-                </div>
-                <div className={`${currencySizes[size]} font-medium mt-2 text-white`}>{currency}</div>
-              </div>
+        <svg 
+          viewBox="0 0 100 100" 
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon 
+            points="25,0 75,0 100,50 75,100 25,100 0,50" 
+            fill={filled ? "#E6B325" : "white"}
+            stroke="#E6B325"
+            strokeWidth="5"
+          />
+        </svg>
+
+        {/* Content positioned absolutely over the SVG */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <div className="text-center">
+            <div className={`font-display ${textSizes[size]} font-bold ${filled ? "text-white" : "text-[#E6B325]"}`}>
+              {value}
+            </div>
+            <div className={`${currencySizes[size]} font-medium mt-2 ${filled ? "text-white" : "text-[#E6B325]"}`}>
+              {currency}
             </div>
           </div>
-        ) : (
-          // Simple outlined hexagon with clean gold border as in reference image
-          <div
-            className="w-full h-full"
-            style={{
-              clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-              border: "5px solid #F0B90B",
-              backgroundColor: "white",
-            }}
-          >
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div className="text-center">
-                <div className={`font-display ${textSizes[size]} font-bold text-wealth-gold`}>
-                  {value}
-                </div>
-                <div className={`${currencySizes[size]} font-medium mt-2 text-wealth-gold`}>{currency}</div>
-              </div>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );

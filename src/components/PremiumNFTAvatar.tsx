@@ -81,39 +81,37 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Clean hexagonal avatar with gold border */}
-      <div className="relative">
-        <div 
-          className={cn(
-            sizes[size],
-            "relative overflow-hidden bg-white"
-          )}
-          style={{
-            clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-            border: "5px solid #F0B90B",
-          }}
+      {/* Hexagonal avatar with SVG for better visibility */}
+      <div className={cn("relative", sizes[size])}>
+        <svg 
+          viewBox="0 0 100 100" 
+          className="w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Simple content with value and currency */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
-            <span className={cn(
-              "font-bold", 
-              fontSizes[size],
-              "text-wealth-gold"
-            )}>
-              {formattedAmount}
-            </span>
-            <span className="text-xs text-wealth-gold">USDT</span>
-          </div>
+          <polygon 
+            points="25,0 75,0 100,50 75,100 25,100 0,50" 
+            fill="white"
+            stroke="#E6B325"
+            strokeWidth="5"
+          />
+        </svg>
+        
+        {/* Content positioned absolutely over the SVG */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className={cn("font-bold", fontSizes[size], "text-[#E6B325]")}>
+            {formattedAmount}
+          </span>
+          <span className="text-xs text-[#E6B325]">USDT</span>
         </div>
         
         {/* Badge icon */}
         <div className={cn(
           "absolute bg-white rounded-full p-0.5",
           verifiedBadgeSizes[size],
-          "border-2 border-wealth-gold",
+          "border-2 border-[#E6B325]",
           "z-10"
         )}>
-          <div className="rounded-full p-0.5 bg-wealth-gold/20">
+          <div className="rounded-full p-0.5 bg-[#E6B325]/20">
             {getBadgeIcon()}
           </div>
         </div>

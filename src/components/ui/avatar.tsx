@@ -10,9 +10,37 @@ const Avatar = React.forwardRef<
     shape?: "circle" | "square" | "hexagon"
   }
 >(({ className, shape = "circle", ...props }, ref) => {
-  const shapeClass = shape === "square" ? "rounded-md" :
-                     shape === "hexagon" ? "premium-hexagon" :
-                     "rounded-full";
+  if (shape === "hexagon") {
+    return (
+      <div
+        className={cn(
+          "relative flex h-10 w-10 shrink-0 overflow-hidden",
+          className
+        )}
+        ref={ref as any}
+      >
+        <svg 
+          viewBox="0 0 100 100" 
+          className="w-full h-full absolute inset-0"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon 
+            points="25,0 75,0 100,50 75,100 25,100 0,50" 
+            fill="white"
+            stroke="#E6B325"
+            strokeWidth="5"
+          />
+        </svg>
+        <AvatarPrimitive.Root
+          className="absolute inset-0 flex justify-center items-center"
+          ref={ref}
+          {...props}
+        />
+      </div>
+    );
+  }
+  
+  const shapeClass = shape === "square" ? "rounded-md" : "rounded-full";
                      
   return (
     <AvatarPrimitive.Root
