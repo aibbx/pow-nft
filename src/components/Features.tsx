@@ -5,8 +5,7 @@ import {
   WalletIcon, 
   Package, 
   DollarSign, 
-  ShieldCheck, 
-  Link
+  ShieldCheck
 } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/utils/animation";
 
@@ -31,11 +30,6 @@ const Features = () => {
       icon: <ShieldCheck className="h-6 w-6" />,
       title: "Secure Storage",
       description: "Your funds are securely managed with industry-leading security practices."
-    },
-    {
-      icon: <Link className="h-6 w-6" />,
-      title: "Cross-Chain Future",
-      description: "Expanding to TRON, TON, and Solana to provide multi-chain wealth verification."
     }
   ];
 
@@ -62,7 +56,7 @@ const Features = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
           variants={staggerContainer(0.1, 0.2)}
           initial="initial"
           whileInView="animate"
