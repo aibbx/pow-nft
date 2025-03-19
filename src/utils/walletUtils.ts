@@ -1,6 +1,7 @@
 
 import { MetaMask } from '@web3-react/metamask';
 import { Connector } from '@web3-react/types';
+import { initializeConnector } from '@web3-react/core';
 
 export interface WalletInfo {
   name: string;
@@ -8,7 +9,8 @@ export interface WalletInfo {
   connector: Connector;
 }
 
-const metamaskConnector = new MetaMask();
+// Initialize MetaMask connector properly with the required argument
+const [metaMaskConnector] = initializeConnector<MetaMask>((actions) => new MetaMask({ actions }));
 
 // OKX Wallet detection functions
 const isOKXWalletInstalled = (): boolean => {
@@ -17,7 +19,7 @@ const isOKXWalletInstalled = (): boolean => {
 
 export const connectMetaMask = async (): Promise<void> => {
   try {
-    await metamaskConnector.activate();
+    await metaMaskConnector.activate();
     console.log('Connected to MetaMask');
   } catch (error) {
     console.error('Error connecting to MetaMask:', error);
@@ -43,8 +45,8 @@ export const connectOKXWallet = async (): Promise<void> => {
 export const getAccount = async (wallet: 'metamask' | 'okx'): Promise<string | null> => {
   try {
     if (wallet === 'metamask') {
-      if (metamaskConnector.provider) {
-        const accounts = await metamaskConnector.provider.request({ method: 'eth_accounts' });
+      if (metaMaskConnector.provider) {
+        const accounts = await metaMaskConnector.provider.request({ method: 'eth_accounts' });
         return accounts[0] || null;
       }
     } else if (wallet === 'okx') {
@@ -65,7 +67,7 @@ export const getSupportedWallets = (): WalletInfo[] => {
     {
       name: 'MetaMask',
       icon: 'metamask-logo',
-      connector: metamaskConnector,
+      connector: metaMaskConnector,
     }
   ];
   
@@ -81,10 +83,17 @@ export const getSupportedWallets = (): WalletInfo[] => {
   return wallets;
 };
 
+// Define proper typings for Ethereum provider
+interface EthereumProvider {
+  request: (args: {method: string, params?: any[]}) => Promise<any>;
+  on: (eventName: string, handler: (result: any) => void) => void;
+  removeListener: (eventName: string, handler: (result: any) => void) => void;
+}
+
 // For TypeScript
 declare global {
   interface Window {
-    ethereum?: any;
-    okxwallet?: any;
+    ethereum?: EthereumProvider;
+    okxwallet?: EthereumProvider;
   }
 }
