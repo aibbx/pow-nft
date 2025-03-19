@@ -154,13 +154,13 @@
     @apply border-wealth-gold/30 focus:border-wealth-gold focus:ring-wealth-gold/20;
   }
   
-  /* Rotated hexagon implementation (90 degrees) */
+  /* Enhanced hexagon implementation with clearer borders */
   .premium-hexagon {
     clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
     -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
     transform: rotate(0deg);
-    box-shadow: 0 0 15px rgba(240, 185, 11, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 15px rgba(240, 185, 11, 0.3);
+    border: 2px solid #F0B90B;
     overflow: hidden;
   }
   
@@ -185,16 +185,16 @@
     backdrop-filter: blur(5px);
   }
   
-  /* Premium border styles */
+  /* Premium border styles - enhanced for better visibility */
   .crystal-border {
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    border: 2px solid #F0B90B;
     box-shadow: 
       0 0 0 1px rgba(240, 185, 11, 0.3),
       0 0 15px rgba(240, 185, 11, 0.2);
   }
   
   .crystal-ring {
-    box-shadow: 0 0 0 1px rgba(240, 185, 11, 0.5);
+    box-shadow: 0 0 0 2px rgba(240, 185, 11, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.8);
   }
   
@@ -292,17 +292,19 @@
     to { transform: rotate(360deg); }
   }
   
-  /* Gold border for premium elements */
+  /* Enhanced gold border for premium elements */
   .gold-border {
     border: 2px solid #F0B90B;
     box-shadow: 0 0 10px rgba(240, 185, 11, 0.3);
   }
   
-  /* Hexagon implementation - updated to match the image */
+  /* Enhanced hexagon implementation with clear borders */
   .hexagon {
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     position: relative;
     overflow: hidden;
+    background: white;
+    border: 2px solid #F0B90B;
   }
 }

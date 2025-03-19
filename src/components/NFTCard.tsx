@@ -57,9 +57,9 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
       transition={{ type: "spring", stiffness: 300 }}
       className={cn("", className)}
     >
-      <Card className="overflow-hidden border-wealth-gold/20 shadow-lg group transition-all duration-300 bg-white relative">
-        {/* Top gold line */}
-        <div className="h-1.5 w-full bg-wealth-gold relative overflow-hidden" />
+      <Card className="overflow-hidden border-wealth-gold/50 shadow-premium group transition-all duration-300 bg-white relative">
+        {/* Top gold line - made thicker */}
+        <div className="h-2 w-full bg-wealth-gold relative overflow-hidden" />
         
         <div className="p-6 relative">
           {/* Top information */}
@@ -68,23 +68,23 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
               <div className="text-sm font-medium text-wealth-muted">PROOF OF WEALTH</div>
               <div className="text-xl font-display font-bold text-wealth-gold">PoW NFT</div>
             </div>
-            <div className="flex items-center bg-wealth-gold/10 px-3 py-1 rounded-full border border-wealth-gold/20">
+            <div className="flex items-center bg-wealth-gold/10 px-3 py-1 rounded-full border border-wealth-gold/50">
               {badge.icon}
               <span className="text-xs font-medium">{badge.label}</span>
             </div>
           </div>
           
-          {/* Main amount display - hexagonal avatar with clean styling */}
+          {/* Main amount display - hexagonal avatar with enhanced styling */}
           <div className="flex flex-col items-center justify-center py-8 mb-4">
             <div className="relative">
-              {/* Subtle glow effect */}
-              <div className="absolute -inset-3 blur-lg opacity-30 -z-10 rounded-full bg-yellow-100/50" />
+              {/* More visible glow effect */}
+              <div className="absolute -inset-3 blur-lg opacity-50 -z-10 rounded-full bg-yellow-100" />
               
               <Avatar 
                 shape="hexagon" 
                 className={cn(
-                  "h-32 w-32 shadow-lg bg-white overflow-hidden hexagon",
-                  "border border-wealth-gold/10"
+                  "h-32 w-32 shadow-premium bg-white overflow-hidden hexagon",
+                  "border-2 border-wealth-gold" // Enhanced border
                 )}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
@@ -95,9 +95,9 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
                 </div>
               </Avatar>
               
-              {/* Badge for higher tier NFTs */}
+              {/* Badge for higher tier NFTs with enhanced styling */}
               {amount >= 1000000 && (
-                <div className="absolute -top-2 -right-2 p-1 rounded-full shadow-lg bg-white border border-wealth-gold/20">
+                <div className="absolute -top-2 -right-2 p-1 rounded-full shadow-premium bg-white border-2 border-wealth-gold">
                   {amount >= 10000000 ? 
                     <Diamond className="h-4 w-4 text-wealth-gold" /> : 
                     <Crown className="h-4 w-4 text-wealth-gold" />
@@ -115,7 +115,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
             </div>
           </div>
           
-          {/* Bottom info */}
+          {/* Bottom info with enhanced styling */}
           <div className="mt-4 space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-wealth-muted">NFT ID</span>
@@ -125,7 +125,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
               <span className="text-wealth-muted">Backed Value</span>
               <span className="font-bold text-wealth-gold">{fullFormattedAmount} USDT</span>
             </div>
-            <div className="flex items-center mt-3 justify-center w-full py-2 text-xs font-medium bg-wealth-gold/10 text-wealth-gold rounded-full border border-wealth-gold/20">
+            <div className="flex items-center mt-3 justify-center w-full py-2 text-xs font-medium bg-wealth-gold/10 text-wealth-gold rounded-full border border-wealth-gold/50">
               <ShieldCheck className="h-3 w-3 mr-1" />
               100% Backed by Stable Coins
             </div>

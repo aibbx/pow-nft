@@ -82,17 +82,17 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Subtle glow effect */}
-      <div className="absolute inset-0 blur-lg opacity-40 -z-10 rounded-full bg-yellow-100/50" />
+      {/* More prominent glow effect */}
+      <div className="absolute inset-0 blur-lg opacity-60 -z-10 rounded-full bg-yellow-100" />
       
-      {/* Hexagonal avatar with uniform styling */}
+      {/* Hexagonal avatar with enhanced styling */}
       <div className="relative">
         <Avatar 
           shape="hexagon"
           className={cn(
             sizes[size],
-            "overflow-hidden shadow-lg bg-white hexagon",
-            "border border-wealth-gold/10"
+            "overflow-hidden shadow-premium bg-white hexagon",
+            "border-2 border-wealth-gold" // Enhanced border
           )}
         >
           {/* Inner content with clean styling */}
@@ -108,14 +108,14 @@ const PremiumNFTAvatar = ({
           </div>
         </Avatar>
         
-        {/* Badge icon */}
+        {/* Enhanced badge icon */}
         <div className={cn(
-          "absolute bg-white rounded-full p-0.5 shadow-md",
+          "absolute bg-white rounded-full p-0.5 shadow-premium",
           verifiedBadgeSizes[size],
-          "border border-wealth-gold/20",
+          "border-2 border-wealth-gold", // Enhanced border
           "z-10"
         )}>
-          <div className="rounded-full p-0.5 bg-wealth-gold/10">
+          <div className="rounded-full p-0.5 bg-wealth-gold/20">
             {getBadgeIcon()}
           </div>
         </div>
