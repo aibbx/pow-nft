@@ -12,10 +12,10 @@ interface NFTCollectionSectionProps {
 
 const NFTCollectionSection = ({ onDeposit }: NFTCollectionSectionProps) => {
   const nfts = [
-    { amount: 100000, id: "#POW001", tier: 6 },
-    { amount: 1000000, id: "#POW002", tier: 7 },
-    { amount: 10000000, id: "#POW003", tier: 8 },
-    { amount: 100000000, id: "#POW004", tier: 9 }
+    { amount: 100000, id: "#POW001", tier: 7 },
+    { amount: 1000000, id: "#POW002", tier: 8 },
+    { amount: 10000000, id: "#POW003", tier: 9 },
+    { amount: 100000000, id: "#POW004", tier: 10 }
   ];
 
   return (

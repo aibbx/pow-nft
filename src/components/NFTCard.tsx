@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from "@/components/ui/card";
 import { DollarSign, ShieldCheck, Crown, Star, Gem, Sparkles, Medal, Diamond } from "lucide-react";
@@ -59,7 +58,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
   };
   
   const badge = getBadgeDetails();
-  const actualTier = tier || Math.floor(Math.log10(amount / 10000)) + 6;
+  const actualTier = tier || Math.floor(Math.log10(amount / 10000)) + 7;
   
   return (
     <motion.div 
