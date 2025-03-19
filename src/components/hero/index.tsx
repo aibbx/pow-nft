@@ -6,7 +6,11 @@ import HeroLeftColumn from './HeroLeftColumn';
 import BackgroundEffects from './BackgroundEffects';
 import NFTCardVisualization from './NFTCardVisualization';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onDeposit: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onDeposit }) => {
   return (
     <div className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Luxury background elements */}
@@ -14,7 +18,7 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 py-12">
         {/* Left Column - Text */}
-        <HeroLeftColumn />
+        <HeroLeftColumn onDeposit={onDeposit} />
         
         {/* Right Column - NFT Card */}
         <motion.div 

@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Diamond, Crown, Star } from "lucide-react";
 import { fadeInUp } from "@/utils/animation";
 
-const HeroLeftColumn: React.FC = () => {
+interface HeroLeftColumnProps {
+  onDeposit: () => void;
+}
+
+const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
   return (
     <motion.div 
       className="flex flex-col justify-center"
@@ -40,6 +44,7 @@ const HeroLeftColumn: React.FC = () => {
           <Button 
             size="lg" 
             className="bg-gold-gradient text-black font-bold hover:opacity-90 transition-opacity group shadow-premium"
+            onClick={onDeposit}
           >
             Mint Your Elite NFT
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

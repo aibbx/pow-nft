@@ -18,7 +18,7 @@ const Index = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <Hero />
+        <Hero onDeposit={() => setDepositModalOpen(true)} />
         
         {/* Features Section */}
         <Features />
