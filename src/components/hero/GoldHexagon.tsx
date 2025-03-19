@@ -12,10 +12,11 @@ const GoldHexagon: React.FC<GoldHexagonProps> = ({
 }) => {
   return (
     <div className="relative">
-      {/* Gold Hexagon with prominent outline */}
-      <div className="hexagon relative w-64 h-64 bg-white" style={{
+      {/* Clear Gold Hexagon with bold outline */}
+      <div className="relative w-64 h-64" style={{
         clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
         border: "3px solid #F0B90B",
+        backgroundColor: "white",
       }}>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="text-center">
