@@ -134,7 +134,7 @@ const NFTCardVisualization = () => {
                 <div className="absolute inset-0 bg-white rounded-lg flex items-center justify-center p-6">
                   <div className="text-center">
                     <div className="font-display text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gold-gradient">
-                      100K
+                      100M
                     </div>
                     <div className="text-sm font-medium mt-2">USDT</div>
                   </div>
@@ -150,7 +150,7 @@ const NFTCardVisualization = () => {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-wealth-muted">Backed Value</span>
-                <span className="font-bold">100,000 USDT</span>
+                <span className="font-bold">100,000,000 USDT</span>
               </div>
             </div>
           </div>
