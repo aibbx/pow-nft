@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Verified, Sparkles, Diamond, Medal, Trophy, Award } from "lucide-react";
+import { Verified, Sparkles, Diamond, Medal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface PremiumNFTAvatarProps {
@@ -45,32 +45,18 @@ const PremiumNFTAvatar = ({
   
   // Determine badge icon based on amount
   const getBadgeIcon = () => {
-    if (amount >= 100000000) return <Award className="text-white" />;
-    if (amount >= 10000000) return <Trophy className="text-white" />;
     if (amount >= 1000000) return <Diamond className="text-white" />;
-    if (amount >= 100000) return <Medal className="text-white" />;
-    return <Sparkles className="text-white" />;
+    if (amount >= 500000) return <Medal className="text-white" />;
+    if (amount >= 100000) return <Sparkles className="text-white" />;
+    return <Verified className="text-white" />;
   };
   
   // Create gradient based on amount
   const getGradient = () => {
-    if (amount >= 100000000) return "premium-gradient-100m"; // $100M+
-    if (amount >= 10000000) return "premium-gradient-10m"; // $10M+
     if (amount >= 1000000) return "premium-gradient-1m"; // $1M+
+    if (amount >= 500000) return "premium-gradient-500k"; // $500K+
     if (amount >= 100000) return "premium-gradient-100k"; // $100K+
     return "premium-gradient-default"; // Default
-  };
-  
-  // Format display amount
-  const getDisplayAmount = () => {
-    if (amount >= 1000000000) return `${(amount / 1000000000).toFixed(1)}B`;
-    if (amount >= 1000000) return `${(amount / 1000000).toFixed(1)}M`;
-    if (amount >= 1000) return `${(amount / 1000).toFixed(0)}K`;
-    return amount.toString();
-  };
-  
-  const getWealthTier = () => {
-    return `A${Math.log10(amount).toFixed(0)}`;
   };
   
   const MotionComponent = animated ? motion.div : "div";
@@ -115,11 +101,9 @@ const PremiumNFTAvatar = ({
               fontSizes[size],
               getGradient()
             )}>
-              {getDisplayAmount()}
+              {amount >= 1000000 ? `${(amount / 1000000).toFixed(1)}M` : `${formattedAmount.split(',')[0]}K`}
             </span>
-            <span className="text-xs text-wealth-muted">
-              {getWealthTier()}
-            </span>
+            <span className="text-xs text-wealth-muted">USDT</span>
           </div>
         </Avatar>
         

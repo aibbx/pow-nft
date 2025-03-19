@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card } from "@/components/ui/card";
-import { DollarSign, ShieldCheck, Crown, Star, Gem, Sparkles, Medal, Diamond, Trophy, Award } from "lucide-react";
+import { DollarSign, ShieldCheck, Crown, Star, Gem, Sparkles, Medal, Diamond } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Avatar } from "@/components/ui/avatar";
@@ -18,23 +18,14 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
   
   // Determine badge icon and colors based on amount
   const getBadgeDetails = () => {
-    if (amount >= 100000000) return { 
-      icon: <Award className="h-3 w-3 mr-1 text-wealth-gold" />, 
-      label: "Wealth Tier A10",
-      extra: <div className="absolute top-0 left-0 w-full h-full bg-wealth-gold/10 shimmer"></div>
-    };
-    if (amount >= 10000000) return { 
-      icon: <Trophy className="h-3 w-3 mr-1 text-wealth-gold" />, 
-      label: "Wealth Tier A9",
-      extra: <div className="absolute top-0 left-0 w-full h-full bg-wealth-gold/5 shimmer"></div>
-    };
-    if (amount >= 1000000) return { 
+    if (amount >= 500000) return { 
       icon: <Diamond className="h-3 w-3 mr-1 text-wealth-gold" />, 
-      label: "Wealth Tier A8" 
+      label: "Elite",
+      extra: <div className="absolute top-0 left-0 w-full h-full bg-wealth-gold/5 shimmer"></div>
     };
     if (amount >= 100000) return { 
       icon: <Medal className="h-3 w-3 mr-1 text-wealth-gold" />, 
-      label: "Wealth Tier A7" 
+      label: "Premium" 
     };
     return { 
       icon: <Sparkles className="h-3 w-3 mr-1 text-wealth-gold" />, 
@@ -44,19 +35,9 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
   
   // Get gradient class based on amount
   const getGradient = () => {
-    if (amount >= 100000000) return "bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-700";
-    if (amount >= 10000000) return "bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600";
-    if (amount >= 1000000) return "bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500";
-    if (amount >= 100000) return "bg-gradient-to-br from-amber-200 via-yellow-300 to-amber-400";
-    return "bg-gradient-to-br from-amber-100 via-yellow-200 to-amber-300";
-  };
-  
-  // Format display amount
-  const getDisplayAmount = () => {
-    if (amount >= 1000000000) return `${(amount / 1000000000).toFixed(1)}B`;
-    if (amount >= 1000000) return `${(amount / 1000000).toFixed(1)}M`;
-    if (amount >= 1000) return `${(amount / 1000).toFixed(0)}K`;
-    return amount.toString();
+    if (amount >= 500000) return "bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600";
+    if (amount >= 100000) return "bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500";
+    return "bg-gradient-to-br from-amber-200 via-yellow-300 to-amber-400";
   };
   
   const badge = getBadgeDetails();
@@ -72,7 +53,7 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
         <div className="h-1.5 w-full bg-gold-gradient" />
         
         {/* Conditional sparkling effect for high-value NFTs */}
-        {amount >= 10000000 && (
+        {amount >= 500000 && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-10 right-10 w-8 h-8 bg-wealth-gold/20 rounded-full blur-sm animate-pulse"></div>
             <div className="absolute bottom-20 left-10 w-6 h-6 bg-wealth-gold/20 rounded-full blur-sm animate-pulse delay-300"></div>
@@ -98,7 +79,7 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
           <div className="flex flex-col items-center justify-center py-8 mb-4">
             <div className="relative">
               {/* Glow effect for premium NFTs */}
-              {amount >= 1000000 && (
+              {amount >= 100000 && (
                 <div className="absolute -inset-2 blur-lg opacity-30 -z-10 rounded-full bg-gold-gradient"></div>
               )}
               
@@ -107,17 +88,18 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
                 className={cn("h-32 w-32 border-2 border-wealth-gold/30 rotate-90 shadow-xl", getGradient())}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white -rotate-90">
-                  <span className="font-display text-2xl font-bold">{getDisplayAmount()}</span>
+                  <span className="font-display text-2xl font-bold">{amount >= 1000000 ? `${(amount / 1000000).toFixed(1)}M` : formattedAmount}</span>
                   <span className="text-xs">USDT</span>
                 </div>
               </Avatar>
               
               {/* Premium badge for higher tier NFTs */}
-              {amount >= 1000000 && (
+              {amount >= 100000 && (
                 <div className="absolute -top-2 -right-2 bg-gold-gradient p-1 rounded-full shadow-md">
-                  {amount >= 100000000 ? <Award className="h-4 w-4 text-black" /> : 
-                   amount >= 10000000 ? <Trophy className="h-4 w-4 text-black" /> : 
-                   <Diamond className="h-4 w-4 text-black" />}
+                  {amount >= 500000 ? 
+                    <Diamond className="h-4 w-4 text-black" /> : 
+                    <Crown className="h-4 w-4 text-black" />
+                  }
                 </div>
               )}
             </div>
@@ -126,9 +108,9 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
             <div className="mt-4 font-medium text-center">
               <div className={cn(
                 "font-bold",
-                amount >= 10000000 ? "bg-clip-text text-transparent bg-gold-gradient" : "text-wealth-gold"
+                amount >= 500000 ? "bg-clip-text text-transparent bg-gold-gradient" : "text-wealth-gold"
               )}>
-                Wealth Tier A{Math.log10(amount).toFixed(0)}
+                Wealth Tier {Math.log10(amount).toFixed(0)}
               </div>
               <div className="text-sm text-wealth-muted">Certified Holder</div>
             </div>

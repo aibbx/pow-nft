@@ -11,7 +11,7 @@ interface ProfileAvatarsSectionProps {
 }
 
 const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
-  const avatarAmounts = [100000, 1000000, 10000000, 100000000];
+  const avatarAmounts = [100000, 250000, 500000, 1000000];
 
   return (
     <section className="py-20 md:py-32 bg-white">
@@ -50,7 +50,7 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
               <PremiumNFTAvatar amount={amount} size="lg" />
               <div className="text-center">
                 <p className="font-medium">{new Intl.NumberFormat('en-US').format(amount)} USDT</p>
-                <p className="text-sm text-wealth-muted">Wealth Tier A{Math.log10(amount).toFixed(0)}</p>
+                <p className="text-sm text-wealth-muted">Verified Wealth NFT</p>
               </div>
               <Button variant="ghost" size="sm" className="mt-2">
                 <Download className="h-4 w-4 mr-1" />
@@ -64,9 +64,9 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3 flex justify-center">
               <div className="relative">
-                <PremiumNFTAvatar amount={10000000} size="xl" />
+                <PremiumNFTAvatar amount={500000} size="xl" />
                 <div className="absolute -top-4 -right-4 bg-wealth-gold/10 px-3 py-1 rounded-full text-xs font-medium text-wealth-gold">
-                  Elite Tier A9
+                  Premium
                 </div>
               </div>
             </div>
