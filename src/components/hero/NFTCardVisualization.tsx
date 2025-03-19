@@ -30,7 +30,7 @@ const NFTCardVisualization: React.FC = () => {
               </div>
             </div>
             
-            {/* Main NFT Visual - with clean gold hexagon */}
+            {/* Main NFT Visual - with clear gold hexagon */}
             <div className="flex-1 flex items-center justify-center">
               <GoldHexagon value="100M" />
             </div>

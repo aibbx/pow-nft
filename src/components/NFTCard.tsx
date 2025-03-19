@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card } from "@/components/ui/card";
 import { DollarSign, ShieldCheck, Crown, Star, Gem, Sparkles, Medal, Diamond } from "lucide-react";
@@ -73,15 +74,15 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
             </div>
           </div>
           
-          {/* Main amount display - hexagonal avatar with clean gold border for social media */}
+          {/* Main amount display - hexagonal avatar with clear gold border */}
           <div className="flex flex-col items-center justify-center py-8 mb-4">
             <div className="relative">
-              <Avatar 
-                shape="hexagon" 
-                className={cn(
-                  "h-32 w-32 bg-white overflow-hidden hexagon",
-                  "border-2 border-wealth-gold" // Clear border without glow
-                )}
+              <div 
+                className="h-32 w-32 bg-white overflow-hidden"
+                style={{
+                  clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                  border: "3px solid #F0B90B",
+                }}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
                   <span className="font-display text-2xl font-bold text-wealth-gold">
@@ -89,7 +90,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
                   </span>
                   <span className="text-xs text-wealth-gold/80">USDT</span>
                 </div>
-              </Avatar>
+              </div>
               
               {/* Badge for higher tier NFTs with clean styling */}
               {amount >= 1000000 && (

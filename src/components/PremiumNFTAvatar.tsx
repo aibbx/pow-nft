@@ -82,15 +82,17 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Hexagonal avatar with clean gold border for social media profiles */}
+      {/* Hexagonal avatar with visible gold border */}
       <div className="relative">
-        <Avatar 
-          shape="hexagon"
+        <div 
           className={cn(
             sizes[size],
-            "overflow-hidden bg-white hexagon",
-            "border-2 border-wealth-gold" // Clear border without glow
+            "relative overflow-hidden bg-white",
           )}
+          style={{
+            clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+            border: "3px solid #F0B90B",
+          }}
         >
           {/* Inner content with clean styling */}
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
@@ -103,7 +105,7 @@ const PremiumNFTAvatar = ({
             </span>
             <span className="text-xs text-wealth-gold/80">USDT</span>
           </div>
-        </Avatar>
+        </div>
         
         {/* Clean badge icon without glow */}
         <div className={cn(
