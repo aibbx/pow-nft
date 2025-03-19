@@ -4,6 +4,6 @@
     points="25,0 75,0 100,50 75,100 25,100 0,50" 
     fill="white"
     stroke="#F0B90B"
-    stroke-width="4"
+    stroke-width="6"
   />
 </svg>

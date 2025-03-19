@@ -10,12 +10,12 @@ const NFTCardVisualization: React.FC = () => {
     <div className="relative w-full max-w-md mx-auto">
       {/* Card frame with clean shadow and animation */}
       <motion.div 
-        className="relative rounded-2xl overflow-hidden shadow-lg"
+        className="relative rounded-2xl overflow-hidden shadow-lg bg-white"
         whileHover={{ scale: 1.03, rotate: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
       >
         {/* Card background */}
-        <div className="aspect-[3/4] bg-white p-6 border border-wealth-gold/10 relative">
+        <div className="aspect-[3/4] bg-white p-6 border border-wealth-gold/20 relative">
           {/* NFT Content */}
           <div className="h-full flex flex-col">
             {/* Top Row with enhanced styling */}
@@ -30,7 +30,7 @@ const NFTCardVisualization: React.FC = () => {
               </div>
             </div>
             
-            {/* Main NFT Visual - with clear gold hexagon */}
+            {/* Main NFT Visual - prominently displayed gold hexagon */}
             <div className="flex-1 flex items-center justify-center">
               <GoldHexagon value="100M" />
             </div>
