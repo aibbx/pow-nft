@@ -155,19 +155,22 @@
     @apply border-wealth-gold/30 focus:border-wealth-gold focus:ring-wealth-gold/20;
   }
   
-  /* Enhanced Hexagon shape with better clipping */
+  /* Enhanced Hexagon shape with precise clipping for better clarity */
   .hexagon-shape {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    /* Adding webkit prefix for better browser support */
   }
   
   .hexagon-container {
     position: relative;
     overflow: hidden;
+    isolation: isolate; /* Creates a new stacking context for better rendering */
   }
   
-  /* Premium gradients based on amount - enhanced for more luxury */
+  /* Premium gradients - enhanced with higher contrast and clarity */
   .premium-gradient-default {
-    @apply bg-gold-gradient;
+    background: linear-gradient(135deg, #F0B90B 10%, #FFDD65 50%, #F0B90B 60%, #FFF3A3 80%, #F0B90B 100%);
   }
   
   .premium-gradient-100k {
@@ -203,7 +206,7 @@
     100% { background-position: -200% 0; }
   }
   
-  /* Add diamond facet reflections */
+  /* Improved diamond facet reflections */
   .diamond-facet {
     position: relative;
     overflow: hidden;
@@ -212,14 +215,14 @@
   .diamond-facet::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
     background: linear-gradient(
       45deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.5) 50%,
       transparent 100%
     );
     animation: rotate-facet 6s linear infinite;
@@ -228,5 +231,30 @@
   @keyframes rotate-facet {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+  }
+  
+  /* New styles for crisp hexagons */
+  .hex-crisp {
+    transform: rotate(90deg);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .hex-content {
+    transform: rotate(-90deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Enhanced shadows for premium elements */
+  .shadow-premium-strong {
+    box-shadow: 
+      0 10px 25px -5px rgba(240, 185, 11, 0.3),
+      0 0 10px rgba(240, 185, 11, 0.2),
+      0 0 5px rgba(255, 255, 255, 0.1) inset;
   }
 }

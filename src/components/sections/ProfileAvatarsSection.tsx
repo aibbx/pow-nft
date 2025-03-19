@@ -47,7 +47,10 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
               variants={fadeInUp()}
               className="flex flex-col items-center gap-3"
             >
-              <PremiumNFTAvatar amount={amount} size="lg" />
+              {/* Added elevation with shadow for better clarity */}
+              <div className="p-3 rounded-full shadow-premium-strong bg-white/50">
+                <PremiumNFTAvatar amount={amount} size="lg" />
+              </div>
               <div className="text-center">
                 <p className="font-medium">{new Intl.NumberFormat('en-US').format(amount)} USDT</p>
                 <p className="text-sm text-wealth-muted">Verified Wealth NFT</p>
@@ -60,12 +63,15 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
           ))}
         </motion.div>
         
-        <div className="relative p-8 rounded-2xl bg-wealth-gold/5 border border-wealth-gold/20 max-w-4xl mx-auto">
+        <div className="relative p-8 rounded-2xl bg-wealth-gold/5 border border-wealth-gold/20 max-w-4xl mx-auto shadow-premium">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3 flex justify-center">
               <div className="relative">
-                <PremiumNFTAvatar amount={10000000} size="xl" />
-                <div className="absolute -top-4 -right-4 bg-wealth-gold/10 px-3 py-1 rounded-full text-xs font-medium text-wealth-gold">
+                {/* Added extra glow and shadow for more clarity */}
+                <div className="p-5 rounded-full shadow-premium-strong bg-white/80">
+                  <PremiumNFTAvatar amount={10000000} size="xl" />
+                </div>
+                <div className="absolute -top-4 -right-4 bg-wealth-gold/20 px-3 py-1 rounded-full text-xs font-medium text-wealth-gold border border-wealth-gold/40">
                   Mythic
                 </div>
               </div>
@@ -79,7 +85,7 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
               </p>
               <Button 
                 onClick={onDeposit}
-                className="bg-gold-gradient text-black font-medium hover:opacity-90 transition-opacity"
+                className="bg-gold-gradient text-black font-medium hover:opacity-90 transition-opacity shadow-premium"
               >
                 Create Your Premium Avatar
                 <ArrowRight className="h-4 w-4 ml-2" />
