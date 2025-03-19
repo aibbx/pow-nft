@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
+import { Diamond } from "lucide-react";
 import GoldHexagon from './GoldHexagon';
 import FloatingElements from './FloatingElements';
 
@@ -23,7 +24,7 @@ const NFTCardVisualization: React.FC = () => {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
       />
       <motion.div 
-        className="absolute top-1/2 -right-8 h-4 w-4 rounded-full bg-wealth-gold/30 blur-sm"
+        className="absolute top-1/2 -right-8 h-4 w-4 rounded-full bg-wealth-gold/40 blur-sm"
         animate={{ y: [0, -15, 0], opacity: [0.2, 0.6, 0.2] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
