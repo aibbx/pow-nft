@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, DollarSign, ShieldCheck, Package, Crown, Diamond, Star } from "lucide-react";
+import { ArrowRight, DollarSign, ShieldCheck, Package, Crown, Diamond, Star, Hexagon } from "lucide-react";
 import { fadeInUp, scaleIn, slideInFromRight } from "@/utils/animation";
+import { cn } from "@/lib/utils";
 
 const Hero = () => {
   return (
@@ -168,28 +168,38 @@ const NFTCardVisualization = () => {
               </div>
             </div>
             
-            {/* Main NFT Visual - enhanced with more luxury elements */}
+            {/* Main NFT Visual - with gold hexagon */}
             <div className="flex-1 flex items-center justify-center">
-              <div className="relative w-full aspect-square max-w-xs bg-gold-gradient rounded-lg p-0.5 shadow-xl">
-                <div className="absolute inset-0 bg-white rounded-lg flex items-center justify-center p-6 backdrop-blur-sm">
-                  <div className="text-center">
-                    <div className="font-display text-4xl sm:text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gold-gradient">
-                      100M
+              {/* New Gold Hexagon Implementation */}
+              <div className="relative">
+                {/* Outer glow effect */}
+                <div className="absolute -inset-2 bg-gold-gradient opacity-30 blur-lg rounded-full"></div>
+                
+                {/* Gold Hexagon */}
+                <div className="premium-hexagon relative aspect-square w-64 h-64 p-0.5 premium-gold-gradient">
+                  {/* Inner content with white background */}
+                  <div className="absolute inset-0 bg-white flex items-center justify-center p-6 overflow-hidden">
+                    <div className="text-center z-10">
+                      <div className="font-display text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gold-gradient">
+                        100M
+                      </div>
+                      <div className="text-sm font-medium mt-2 text-wealth-gold/80">USDT</div>
                     </div>
-                    <div className="text-sm font-medium mt-2 text-wealth-gold/80">USDT</div>
+                    
+                    {/* Enhanced gold reflection effect */}
+                    <div className="absolute inset-0 premium-reflection"></div>
+                  </div>
+                  
+                  {/* Diamond icon on top right corner */}
+                  <div className="absolute -top-2 -right-2 p-1.5 rounded-full bg-gold-gradient shadow-premium diamond-facet z-10">
+                    <Diamond className="h-4 w-4 text-white" />
+                  </div>
+                  
+                  {/* Crown icon on bottom left corner */}
+                  <div className="absolute -bottom-2 -left-2 p-1.5 rounded-full bg-gold-gradient shadow-premium diamond-facet z-10">
+                    <Crown className="h-4 w-4 text-white" />
                   </div>
                 </div>
-                
-                {/* Enhanced luxury corner elements */}
-                <div className="absolute -top-1 -right-1 p-1 bg-gold-gradient rounded-full shadow-lg diamond-facet">
-                  <Diamond className="h-4 w-4 text-white" />
-                </div>
-                <div className="absolute -bottom-1 -left-1 p-1 bg-gold-gradient rounded-full shadow-lg diamond-facet">
-                  <Crown className="h-4 w-4 text-white" />
-                </div>
-                
-                {/* Add diamond facet reflection */}
-                <div className="absolute inset-0 diamond-facet opacity-40"></div>
               </div>
             </div>
             
