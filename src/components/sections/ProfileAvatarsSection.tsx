@@ -11,7 +11,7 @@ interface ProfileAvatarsSectionProps {
 }
 
 const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
-  const avatarAmounts = [100000, 250000, 500000, 1000000];
+  const avatarAmounts = [100000, 1000000, 10000000, 100000000];
 
   return (
     <section className="py-20 md:py-32 bg-white">
@@ -64,9 +64,9 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3 flex justify-center">
               <div className="relative">
-                <PremiumNFTAvatar amount={500000} size="xl" />
+                <PremiumNFTAvatar amount={10000000} size="xl" />
                 <div className="absolute -top-4 -right-4 bg-wealth-gold/10 px-3 py-1 rounded-full text-xs font-medium text-wealth-gold">
-                  Premium
+                  Mythic
                 </div>
               </div>
             </div>

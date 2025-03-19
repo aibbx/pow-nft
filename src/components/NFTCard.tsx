@@ -9,38 +9,57 @@ import { Avatar } from "@/components/ui/avatar";
 interface NFTCardProps {
   amount: number;
   id: string;
+  tier?: number;
   className?: string;
 }
 
-const NFTCard = ({ amount, id, className }: NFTCardProps) => {
-  // Format amount with commas
-  const formattedAmount = new Intl.NumberFormat('en-US').format(amount);
+const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
+  // Format amount with commas or to millions/billions format
+  const formatCurrency = (value: number) => {
+    if (value >= 1000000000) {
+      return `${(value / 1000000000).toFixed(0)}B`;
+    }
+    if (value >= 1000000) {
+      return `${(value / 1000000).toFixed(0)}M`;
+    }
+    return new Intl.NumberFormat('en-US').format(value);
+  };
+  
+  const formattedAmount = formatCurrency(amount);
+  const fullFormattedAmount = new Intl.NumberFormat('en-US').format(amount);
   
   // Determine badge icon and colors based on amount
   const getBadgeDetails = () => {
-    if (amount >= 500000) return { 
+    if (amount >= 100000000) return { 
       icon: <Diamond className="h-3 w-3 mr-1 text-wealth-gold" />, 
-      label: "Elite",
+      label: "Legendary",
       extra: <div className="absolute top-0 left-0 w-full h-full bg-wealth-gold/5 shimmer"></div>
     };
-    if (amount >= 100000) return { 
+    if (amount >= 10000000) return { 
+      icon: <Crown className="h-3 w-3 mr-1 text-wealth-gold" />, 
+      label: "Mythic",
+      extra: <div className="absolute top-0 left-0 w-full h-full bg-wealth-gold/5 shimmer"></div>
+    };
+    if (amount >= 1000000) return { 
       icon: <Medal className="h-3 w-3 mr-1 text-wealth-gold" />, 
-      label: "Premium" 
+      label: "Epic" 
     };
     return { 
       icon: <Sparkles className="h-3 w-3 mr-1 text-wealth-gold" />, 
-      label: "Standard" 
+      label: "Premium" 
     };
   };
   
   // Get gradient class based on amount
   const getGradient = () => {
-    if (amount >= 500000) return "bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600";
-    if (amount >= 100000) return "bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500";
+    if (amount >= 100000000) return "bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700";
+    if (amount >= 10000000) return "bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600";
+    if (amount >= 1000000) return "bg-gradient-to-br from-amber-300 via-yellow-400 to-amber-500";
     return "bg-gradient-to-br from-amber-200 via-yellow-300 to-amber-400";
   };
   
   const badge = getBadgeDetails();
+  const actualTier = tier || Math.floor(Math.log10(amount / 10000)) + 6;
   
   return (
     <motion.div 
@@ -53,7 +72,7 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
         <div className="h-1.5 w-full bg-gold-gradient" />
         
         {/* Conditional sparkling effect for high-value NFTs */}
-        {amount >= 500000 && (
+        {amount >= 10000000 && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-10 right-10 w-8 h-8 bg-wealth-gold/20 rounded-full blur-sm animate-pulse"></div>
             <div className="absolute bottom-20 left-10 w-6 h-6 bg-wealth-gold/20 rounded-full blur-sm animate-pulse delay-300"></div>
@@ -79,7 +98,7 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
           <div className="flex flex-col items-center justify-center py-8 mb-4">
             <div className="relative">
               {/* Glow effect for premium NFTs */}
-              {amount >= 100000 && (
+              {amount >= 1000000 && (
                 <div className="absolute -inset-2 blur-lg opacity-30 -z-10 rounded-full bg-gold-gradient"></div>
               )}
               
@@ -88,15 +107,15 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
                 className={cn("h-32 w-32 border-2 border-wealth-gold/30 rotate-90 shadow-xl", getGradient())}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white -rotate-90">
-                  <span className="font-display text-2xl font-bold">{amount >= 1000000 ? `${(amount / 1000000).toFixed(1)}M` : formattedAmount}</span>
+                  <span className="font-display text-2xl font-bold">{formattedAmount}</span>
                   <span className="text-xs">USDT</span>
                 </div>
               </Avatar>
               
               {/* Premium badge for higher tier NFTs */}
-              {amount >= 100000 && (
+              {amount >= 1000000 && (
                 <div className="absolute -top-2 -right-2 bg-gold-gradient p-1 rounded-full shadow-md">
-                  {amount >= 500000 ? 
+                  {amount >= 10000000 ? 
                     <Diamond className="h-4 w-4 text-black" /> : 
                     <Crown className="h-4 w-4 text-black" />
                   }
@@ -108,9 +127,9 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
             <div className="mt-4 font-medium text-center">
               <div className={cn(
                 "font-bold",
-                amount >= 500000 ? "bg-clip-text text-transparent bg-gold-gradient" : "text-wealth-gold"
+                amount >= 10000000 ? "bg-clip-text text-transparent bg-gold-gradient" : "text-wealth-gold"
               )}>
-                Wealth Tier {Math.log10(amount).toFixed(0)}
+                Wealth Tier A{actualTier}
               </div>
               <div className="text-sm text-wealth-muted">Certified Holder</div>
             </div>
@@ -124,7 +143,7 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-wealth-muted">Backed Value</span>
-              <span className="font-bold">{formattedAmount} USDT</span>
+              <span className="font-bold">{fullFormattedAmount} USDT</span>
             </div>
             <div className="flex items-center mt-3 justify-center w-full py-2 text-xs font-medium bg-wealth-gold/10 text-wealth-gold rounded-full">
               <ShieldCheck className="h-3 w-3 mr-1" />

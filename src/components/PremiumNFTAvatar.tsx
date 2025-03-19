@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Verified, Sparkles, Diamond, Medal } from "lucide-react";
+import { Verified, Sparkles, Diamond, Medal, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface PremiumNFTAvatarProps {
@@ -18,8 +18,21 @@ const PremiumNFTAvatar = ({
   className,
   animated = true 
 }: PremiumNFTAvatarProps) => {
-  // Format amount with commas
-  const formattedAmount = new Intl.NumberFormat('en-US').format(amount);
+  // Format amount for display
+  const formatAmount = (value: number) => {
+    if (value >= 1000000000) {
+      return `${(value / 1000000000).toFixed(0)}B`;
+    }
+    if (value >= 1000000) {
+      return `${(value / 1000000).toFixed(0)}M`;
+    }
+    if (value >= 1000) {
+      return `${(value / 1000).toFixed(0)}K`;
+    }
+    return value.toString();
+  };
+  
+  const formattedAmount = formatAmount(amount);
   
   // Determine size classes
   const sizes = {
@@ -45,16 +58,18 @@ const PremiumNFTAvatar = ({
   
   // Determine badge icon based on amount
   const getBadgeIcon = () => {
-    if (amount >= 1000000) return <Diamond className="text-white" />;
-    if (amount >= 500000) return <Medal className="text-white" />;
+    if (amount >= 100000000) return <Diamond className="text-white" />;
+    if (amount >= 10000000) return <Crown className="text-white" />;
+    if (amount >= 1000000) return <Medal className="text-white" />;
     if (amount >= 100000) return <Sparkles className="text-white" />;
     return <Verified className="text-white" />;
   };
   
   // Create gradient based on amount
   const getGradient = () => {
+    if (amount >= 100000000) return "premium-gradient-100m"; // $100M+
+    if (amount >= 10000000) return "premium-gradient-10m"; // $10M+
     if (amount >= 1000000) return "premium-gradient-1m"; // $1M+
-    if (amount >= 500000) return "premium-gradient-500k"; // $500K+
     if (amount >= 100000) return "premium-gradient-100k"; // $100K+
     return "premium-gradient-default"; // Default
   };
@@ -101,7 +116,7 @@ const PremiumNFTAvatar = ({
               fontSizes[size],
               getGradient()
             )}>
-              {amount >= 1000000 ? `${(amount / 1000000).toFixed(1)}M` : `${formattedAmount.split(',')[0]}K`}
+              {formattedAmount}
             </span>
             <span className="text-xs text-wealth-muted">USDT</span>
           </div>
