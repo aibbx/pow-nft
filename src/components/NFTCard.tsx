@@ -50,7 +50,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
     };
   };
   
-  // Get gradient class based on amount with enhanced luxury gradients
+  // Get gradient class based on amount - enhanced gold gradients
   const getGradient = () => {
     if (amount >= 100000000) return "premium-luxury-gradient";
     if (amount >= 10000000) return "premium-platinum-gradient";
@@ -69,12 +69,12 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
       className={cn("", className)}
     >
       <Card className="overflow-hidden border-wealth-gold/20 shadow-premium group transition-all duration-300 bg-white relative">
-        {/* Top gradient line with enhanced shine */}
+        {/* Top gradient line with enhanced gold shine */}
         <div className="h-1.5 w-full bg-gold-gradient relative overflow-hidden">
           <div className="absolute inset-0 diamond-facet"></div>
         </div>
         
-        {/* Conditional sparkling effect for high-value NFTs */}
+        {/* Conditional enhanced gold sparkling effect for high-value NFTs */}
         {amount >= 10000000 && (
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-10 right-10 w-8 h-8 bg-wealth-gold/20 rounded-full blur-sm animate-pulse"></div>
@@ -86,7 +86,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
         <div className="p-6 relative">
           {badge.extra}
           
-          {/* Top information with enhanced styling */}
+          {/* Top information with enhanced gold styling */}
           <div className="flex justify-between items-start mb-6">
             <div>
               <div className="text-sm font-medium text-wealth-muted">PROOF OF WEALTH</div>
@@ -98,10 +98,10 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
             </div>
           </div>
           
-          {/* Main amount display - hexagonal avatar with enhanced styling */}
+          {/* Main amount display - hexagonal avatar with enhanced gold styling */}
           <div className="flex flex-col items-center justify-center py-8 mb-4">
             <div className="relative">
-              {/* Enhanced glow effect for premium NFTs */}
+              {/* Enhanced gold glow effect for premium NFTs */}
               {amount >= 1000000 && (
                 <div className="absolute -inset-2 blur-lg opacity-40 -z-10 rounded-full bg-gold-gradient"></div>
               )}
@@ -109,8 +109,8 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
               <Avatar 
                 shape="hexagon" 
                 className={cn(
-                  "h-32 w-32 shadow-premium overflow-hidden premium-hexagon",
-                  amount >= 10000000 ? "crystal-border" : "border-2 border-wealth-gold/40",
+                  "h-32 w-32 shadow-premium overflow-hidden premium-hexagon gold-border",
+                  amount >= 10000000 ? "crystal-border" : "border-2 border-wealth-gold",
                   getGradient()
                 )}
               >
@@ -124,7 +124,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
                   <span className="text-xs text-wealth-dark">USDT</span>
                 </div>
                 
-                {/* Premium reflection effect */}
+                {/* Enhanced gold reflection effect */}
                 <div className="absolute inset-0 premium-reflection"></div>
               </Avatar>
               
@@ -142,7 +142,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
               )}
             </div>
             
-            {/* NFT name with enhanced styling */}
+            {/* NFT name with enhanced gold styling */}
             <div className="mt-4 font-medium text-center">
               <div className={cn(
                 "font-bold",
@@ -154,7 +154,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
             </div>
           </div>
           
-          {/* Bottom info with enhanced styling */}
+          {/* Bottom info with enhanced gold styling */}
           <div className="mt-4 space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-wealth-muted">NFT ID</span>

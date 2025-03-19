@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 @tailwind base;
@@ -154,13 +155,14 @@
     @apply border-wealth-gold/30 focus:border-wealth-gold focus:ring-wealth-gold/20;
   }
   
-  /* Clean modern hexagon implementation */
+  /* Rotated hexagon implementation (90 degrees) */
   .premium-hexagon {
-    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-    -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    transform: rotate(0deg);
   }
   
-  /* Advanced reflection effect */
+  /* Advanced reflection effect - enhanced for gold */
   .premium-reflection {
     position: absolute;
     inset: 0;
@@ -168,11 +170,11 @@
       135deg,
       transparent 0%,
       rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.5) 50%,
       rgba(255, 255, 255, 0) 60%,
       transparent 100%
     );
-    animation: shine 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    animation: shine 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   /* Glass background for transparent effects */
@@ -199,7 +201,7 @@
     to { transform: translateX(100%) rotate(10deg); }
   }
   
-  /* Premium gradients - cool, clear and expensive looking */
+  /* Premium gradients - enhanced gold */
   .premium-crystal-gradient {
     background: linear-gradient(135deg, #eef1f5 0%, #e6e9f0 100%);
   }
@@ -209,7 +211,7 @@
   }
   
   .premium-gold-gradient {
-    background: linear-gradient(135deg, #F0B90B 0%, #FFDD65 100%);
+    background: linear-gradient(135deg, #F0B90B 0%, #FFD700 50%, #F0B90B 100%);
   }
   
   .premium-platinum-gradient {
@@ -220,9 +222,9 @@
     background: linear-gradient(135deg, #403E43 0%, #9F9EA1 100%);
   }
   
-  /* Fancy text gradient */
+  /* Fancy text gradient - enhanced gold */
   .bg-wealth-gold-text {
-    background-image: linear-gradient(135deg, #F0B90B 0%, #FFDD65 50%, #F0B90B 100%);
+    background-image: linear-gradient(135deg, #F0B90B 0%, #FFD700 50%, #F0B90B 100%);
     background-size: 200% auto;
     animation: shimmer-text 3s linear infinite;
   }
@@ -261,7 +263,7 @@
     100% { background-position: -200% 0; }
   }
   
-  /* Simple facet reflections */
+  /* Simple facet reflections - enhanced for gold */
   .diamond-facet {
     position: relative;
     overflow: hidden;
@@ -286,5 +288,11 @@
   @keyframes rotate-facet {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+  }
+  
+  /* Gold border for premium elements */
+  .gold-border {
+    border: 2px solid #F0B90B;
+    box-shadow: 0 0 10px rgba(240, 185, 11, 0.3);
   }
 }

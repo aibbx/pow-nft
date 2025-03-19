@@ -65,7 +65,7 @@ const PremiumNFTAvatar = ({
     return <Verified className="text-wealth-dark" />;
   };
   
-  // Create gradient based on amount - clear and expensive looking
+  // Create gradient based on amount - enhanced gold
   const getGradient = () => {
     if (amount >= 100000000) return "premium-luxury-gradient"; // $100M+
     if (amount >= 10000000) return "premium-platinum-gradient"; // $10M+
@@ -91,24 +91,24 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Subtle glow effect */}
+      {/* Enhanced gold glow effect */}
       <div className={cn(
-        "absolute inset-0 blur-md opacity-30 -z-10 rounded-full",
+        "absolute inset-0 blur-md opacity-40 -z-10 rounded-full",
         getGradient()
       )} />
       
-      {/* Premium hexagonal avatar with clean styling */}
+      {/* Premium hexagonal avatar with enhanced gold styling */}
       <div className="relative">
         <Avatar 
           shape="hexagon"
           className={cn(
             sizes[size],
-            "border-2 overflow-hidden shadow-premium",
-            amount >= 1000000 ? "crystal-border" : "border-white/80",
+            "border-2 overflow-hidden shadow-premium gold-border",
+            amount >= 1000000 ? "crystal-border" : "border-wealth-gold",
             "premium-hexagon"
           )}
         >
-          {/* Inner content with clear aesthetic */}
+          {/* Inner content with clearer gold aesthetic */}
           <div className={cn(
             "absolute inset-0 flex flex-col items-center justify-center",
             "glass-background"
@@ -123,15 +123,15 @@ const PremiumNFTAvatar = ({
             <span className="text-xs text-wealth-dark font-semibold">USDT</span>
           </div>
           
-          {/* Premium faceted reflection effect */}
+          {/* Enhanced gold reflection effect */}
           <div className="absolute inset-0 premium-reflection"></div>
         </Avatar>
         
-        {/* Premium verification badge */}
+        {/* Premium verification badge with enhanced gold */}
         <div className={cn(
           "absolute bg-white rounded-full p-0.5 shadow-premium",
           verifiedBadgeSizes[size],
-          amount >= 10000000 ? "crystal-ring" : "ring-1 ring-wealth-gold/80",
+          amount >= 10000000 ? "crystal-ring" : "ring-1 ring-wealth-gold",
           "z-10"
         )}>
           <div className={cn(
