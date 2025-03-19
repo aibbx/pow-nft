@@ -30,11 +30,11 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
           <div className="flex justify-between items-start mb-6">
             <div>
               <div className="text-sm font-medium text-wealth-muted">PROOF OF WEALTH</div>
-              <div className="text-xl font-display font-bold">BSC NFT</div>
+              <div className="text-xl font-display font-bold">PoW NFT</div>
             </div>
             <div className="flex items-center bg-wealth-gold/10 px-3 py-1 rounded-full">
               <DollarSign className="h-3 w-3 mr-1 text-wealth-gold" />
-              <span className="text-xs font-medium">BSC</span>
+              <span className="text-xs font-medium">PoW</span>
             </div>
           </div>
           
