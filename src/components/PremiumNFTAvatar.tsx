@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Verified } from "lucide-react";
+import { Verified, Sparkles, Diamond, Medal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface PremiumNFTAvatarProps {
@@ -43,6 +43,14 @@ const PremiumNFTAvatar = ({
     xl: "text-xl"
   };
   
+  // Determine badge icon based on amount
+  const getBadgeIcon = () => {
+    if (amount >= 1000000) return <Diamond className="text-white" />;
+    if (amount >= 500000) return <Medal className="text-white" />;
+    if (amount >= 100000) return <Sparkles className="text-white" />;
+    return <Verified className="text-white" />;
+  };
+  
   // Create gradient based on amount
   const getGradient = () => {
     if (amount >= 1000000) return "premium-gradient-1m"; // $1M+
@@ -61,9 +69,17 @@ const PremiumNFTAvatar = ({
     >
       {/* Glow effect behind avatar */}
       <div className={cn(
-        "absolute inset-0 blur-md opacity-60 -z-10",
+        "absolute inset-0 blur-md opacity-70 -z-10 rounded-full",
         getGradient()
       )} />
+      
+      {/* Animated sparkling effect */}
+      {animated && (
+        <>
+          <div className="absolute -inset-1 opacity-20 blur-sm bg-white rounded-full animate-pulse"></div>
+          <div className="absolute -inset-4 opacity-10 blur-md bg-white rounded-full animate-pulse delay-300"></div>
+        </>
+      )}
       
       {/* Hexagonal avatar */}
       <div className="relative">
@@ -71,7 +87,7 @@ const PremiumNFTAvatar = ({
           shape="hexagon"
           className={cn(
             sizes[size],
-            "border-2 overflow-hidden hexagon-container rotate-90",
+            "border-2 overflow-hidden hexagon-container rotate-90 shadow-xl",
             getGradient()
           )}
         >
@@ -97,7 +113,7 @@ const PremiumNFTAvatar = ({
           verifiedBadgeSizes[size]
         )}>
           <div className={cn("rounded-full", getGradient())}>
-            <Verified className="text-white" />
+            {getBadgeIcon()}
           </div>
         </div>
       </div>
