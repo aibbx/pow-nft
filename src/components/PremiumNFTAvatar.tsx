@@ -71,13 +71,13 @@ const PremiumNFTAvatar = ({
           shape="hexagon"
           className={cn(
             sizes[size],
-            "border-2 overflow-hidden hexagon-container",
+            "border-2 overflow-hidden hexagon-container rotate-90",
             getGradient()
           )}
         >
           {/* Inner content - showing the amount */}
           <div className={cn(
-            "absolute inset-0 flex flex-col items-center justify-center font-display",
+            "absolute inset-0 flex flex-col items-center justify-center font-display -rotate-90",
             "bg-wealth-light/95"
           )}>
             <span className={cn(

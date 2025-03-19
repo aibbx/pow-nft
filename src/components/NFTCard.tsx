@@ -55,14 +55,14 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
             </div>
           </div>
           
-          {/* Main amount display - now a hexagonal avatar */}
+          {/* Main amount display - now a hexagonal avatar rotated 90 degrees */}
           <div className="flex flex-col items-center justify-center py-8 mb-4">
             <div className="relative">
               <Avatar 
                 shape="hexagon" 
-                className={cn("h-32 w-32 border-2 border-wealth-gold/30", getGradient())}
+                className={cn("h-32 w-32 border-2 border-wealth-gold/30 rotate-90", getGradient())}
               >
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white -rotate-90">
                   <span className="font-display text-2xl font-bold">{formattedAmount}</span>
                   <span className="text-xs">USDT</span>
                 </div>
