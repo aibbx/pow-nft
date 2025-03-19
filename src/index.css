@@ -154,4 +154,36 @@
   .premium-input {
     @apply border-wealth-gold/30 focus:border-wealth-gold focus:ring-wealth-gold/20;
   }
+  
+  /* Hexagon shape */
+  .hexagon-shape {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  
+  .hexagon-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Premium gradients based on amount */
+  .premium-gradient-default {
+    @apply bg-gold-gradient;
+  }
+  
+  .premium-gradient-100k {
+    background: linear-gradient(135deg, #F0B90B 0%, #F8D33A 100%);
+  }
+  
+  .premium-gradient-500k {
+    background: linear-gradient(135deg, #F0B90B 0%, #E2A100 50%, #FFD700 100%);
+  }
+  
+  .premium-gradient-1m {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 30%, #F0B90B 70%, #FFD700 100%);
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
 }
