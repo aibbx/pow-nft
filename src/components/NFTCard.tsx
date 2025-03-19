@@ -149,7 +149,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
                 "font-bold",
                 amount >= 10000000 ? "bg-clip-text text-transparent bg-gold-gradient" : "text-wealth-gold"
               )}>
-                Wealth Tier A{actualTier}
+                {amount >= 100000000 ? "Tier A10" : `Wealth Tier A${actualTier}`}
               </div>
               <div className="text-sm text-wealth-muted">Certified Holder</div>
             </div>
