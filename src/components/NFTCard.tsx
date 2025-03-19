@@ -1,10 +1,9 @@
 
 import React from 'react';
 import { Card } from "@/components/ui/card";
-import { DollarSign, ShieldCheck, Crown, Star, Gem, Sparkles, Medal, Diamond } from "lucide-react";
+import { DollarSign, ShieldCheck, Crown, Diamond, Sparkles, Medal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Avatar } from "@/components/ui/avatar";
 
 interface NFTCardProps {
   amount: number;
@@ -61,7 +60,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
       className={cn("", className)}
     >
       <Card className="overflow-hidden border-wealth-gold/50 shadow-premium group transition-all duration-300 bg-white relative">
-        {/* Top gold line - made thicker */}
+        {/* Top gold line */}
         <div className="h-2 w-full bg-wealth-gold relative overflow-hidden" />
         
         <div className="p-6 relative">
@@ -92,11 +91,11 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
                     <span className="font-display text-2xl font-bold text-white">
                       {formattedAmount}
                     </span>
-                    <span className="text-xs text-white/80">USDT</span>
+                    <span className="text-xs text-white">USDT</span>
                   </div>
                 </div>
                 
-                {/* Badge for higher tier NFTs with clean styling */}
+                {/* Badge for higher tier NFTs */}
                 <div className="absolute -top-2 -right-2 p-1 rounded-full bg-white border-2 border-wealth-gold">
                   {amount >= 100000000 ? 
                     <Diamond className="h-4 w-4 text-wealth-gold" /> : 
@@ -110,14 +109,14 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
                   className="h-32 w-32 bg-white overflow-hidden"
                   style={{
                     clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-                    border: "4px solid #F0B90B",
+                    border: "5px solid #F0B90B",
                   }}
                 >
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
                     <span className="font-display text-2xl font-bold text-wealth-gold">
                       {formattedAmount}
                     </span>
-                    <span className="text-xs text-wealth-gold/80">USDT</span>
+                    <span className="text-xs text-wealth-gold">USDT</span>
                   </div>
                 </div>
               </div>
@@ -132,7 +131,7 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
             </div>
           </div>
           
-          {/* Bottom info with enhanced styling */}
+          {/* Bottom info */}
           <div className="mt-4 space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-wealth-muted">NFT ID</span>

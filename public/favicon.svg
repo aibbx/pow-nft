@@ -5,7 +5,7 @@
     points="25,0 75,0 100,50 75,100 25,100 0,50" 
     fill="white"
     stroke="#F0B90B"
-    stroke-width="6"
+    stroke-width="5"
   />
   <!-- Dollar Sign -->
   <text 

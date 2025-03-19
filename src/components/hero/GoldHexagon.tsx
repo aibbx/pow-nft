@@ -24,12 +24,17 @@ const GoldHexagon: React.FC<GoldHexagonProps> = ({
     lg: "text-5xl md:text-6xl"
   };
 
+  const currencySizes = {
+    md: "text-sm",
+    lg: "text-lg"
+  };
+
   return (
     <div className="relative">
-      {filled ? (
-        // Filled gold hexagon (matching reference image)
-        <div className={`relative ${sizeClasses[size]}`}>
-          <div 
+      <div className={`relative ${sizeClasses[size]}`}>
+        {filled ? (
+          // Filled gold hexagon
+          <div
             className="w-full h-full"
             style={{
               clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
@@ -41,19 +46,17 @@ const GoldHexagon: React.FC<GoldHexagonProps> = ({
                 <div className={`font-display ${textSizes[size]} font-bold text-white`}>
                   {value}
                 </div>
-                <div className="text-sm font-medium mt-2 text-white/90">{currency}</div>
+                <div className={`${currencySizes[size]} font-medium mt-2 text-white`}>{currency}</div>
               </div>
             </div>
           </div>
-        </div>
-      ) : (
-        // Outlined gold hexagon with sharp edges
-        <div className={`relative ${sizeClasses[size]}`}>
-          <div 
+        ) : (
+          // Simple outlined hexagon with clean gold border as in reference image
+          <div
             className="w-full h-full"
             style={{
               clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-              border: "4px solid #F0B90B",
+              border: "5px solid #F0B90B",
               backgroundColor: "white",
             }}
           >
@@ -62,12 +65,12 @@ const GoldHexagon: React.FC<GoldHexagonProps> = ({
                 <div className={`font-display ${textSizes[size]} font-bold text-wealth-gold`}>
                   {value}
                 </div>
-                <div className="text-sm font-medium mt-2 text-wealth-gold/80">{currency}</div>
+                <div className={`${currencySizes[size]} font-medium mt-2 text-wealth-gold`}>{currency}</div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

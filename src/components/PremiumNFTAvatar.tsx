@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Verified, Sparkles, Diamond, Medal, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -82,7 +81,7 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Hexagonal avatar with visible gold border */}
+      {/* Clean hexagonal avatar with gold border */}
       <div className="relative">
         <div 
           className={cn(
@@ -91,10 +90,10 @@ const PremiumNFTAvatar = ({
           )}
           style={{
             clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-            border: "4px solid #F0B90B",
+            border: "5px solid #F0B90B",
           }}
         >
-          {/* Inner content with clean styling */}
+          {/* Simple content with value and currency */}
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
             <span className={cn(
               "font-bold", 
@@ -103,15 +102,15 @@ const PremiumNFTAvatar = ({
             )}>
               {formattedAmount}
             </span>
-            <span className="text-xs text-wealth-gold/80">USDT</span>
+            <span className="text-xs text-wealth-gold">USDT</span>
           </div>
         </div>
         
-        {/* Clean badge icon without glow */}
+        {/* Badge icon */}
         <div className={cn(
           "absolute bg-white rounded-full p-0.5",
           verifiedBadgeSizes[size],
-          "border-2 border-wealth-gold", // Clear border without glow
+          "border-2 border-wealth-gold",
           "z-10"
         )}>
           <div className="rounded-full p-0.5 bg-wealth-gold/20">
