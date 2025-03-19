@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Dialog, 
@@ -13,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { ArrowRight, AlertCircle, Wallet } from "lucide-react";
-import { NFTCard } from "@/components/NFTCard";
+import NFTCard from "@/components/NFTCard";
 
 interface DepositModalProps {
   open: boolean;
@@ -49,10 +48,8 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
   };
   
   const handleMint = () => {
-    // Here would be the logic to interact with the smart contract
     console.log(`Minting NFT for ${amount} USDT`);
     onOpenChange(false);
-    // Reset state when modal closes
     setTimeout(() => {
       setStep(1);
       setAmount(100000);
@@ -72,7 +69,6 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
             </DialogHeader>
             
             <div className="space-y-6 py-4">
-              {/* Amount input */}
               <div className="space-y-2">
                 <Label htmlFor="amount">Amount (USDT)</Label>
                 <div className="relative">
@@ -91,7 +87,6 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
                 </div>
               </div>
               
-              {/* Quick selection buttons */}
               <div className="space-y-2">
                 <Label>Quick Select</Label>
                 <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
@@ -109,7 +104,6 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
                 </div>
               </div>
               
-              {/* Slider */}
               <div className="space-y-2 pt-2">
                 <Label>Adjust Amount</Label>
                 <Slider
@@ -125,7 +119,6 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
                 </div>
               </div>
               
-              {/* Info box */}
               <div className="bg-wealth-gold/5 p-4 rounded-lg flex items-start space-x-3">
                 <AlertCircle className="h-5 w-5 text-wealth-gold shrink-0 mt-0.5" />
                 <div className="text-sm">
@@ -159,7 +152,6 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
             </DialogHeader>
             
             <div className="grid md:grid-cols-2 gap-6 py-4">
-              {/* NFT preview */}
               <div className="flex justify-center">
                 <NFTCard 
                   amount={amount} 
@@ -168,7 +160,6 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
                 />
               </div>
               
-              {/* Details */}
               <div className="space-y-4">
                 <h3 className="font-bold text-lg">Transaction Details</h3>
                 
@@ -196,7 +187,6 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
                   </div>
                 </div>
                 
-                {/* Info box */}
                 <div className="bg-wealth-gold/5 p-4 rounded-lg flex items-start space-x-3">
                   <Wallet className="h-5 w-5 text-wealth-gold shrink-0 mt-0.5" />
                   <div className="text-sm">
