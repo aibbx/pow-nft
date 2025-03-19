@@ -14,14 +14,14 @@ interface DepositModalProps {
 
 const PREDEFINED_AMOUNTS = [
   { value: 10000, label: "10K" },
-  { value: 50000, label: "50K" },
   { value: 100000, label: "100K" },
-  { value: 500000, label: "500K" },
   { value: 1000000, label: "1M" },
+  { value: 10000000, label: "10M" },
+  { value: 100000000, label: "100M" },
 ];
 
 const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
-  const [amount, setAmount] = useState(100000);
+  const [amount, setAmount] = useState(10000);
   const [step, setStep] = useState(1);
   
   const handlePredefinedAmount = (value: number) => {
@@ -41,7 +41,7 @@ const DepositModal = ({ open, onOpenChange }: DepositModalProps) => {
     onOpenChange(false);
     setTimeout(() => {
       setStep(1);
-      setAmount(100000);
+      setAmount(10000);
     }, 300);
   };
   

@@ -50,8 +50,8 @@ const DepositAmountStep = ({
               value={amount}
               onChange={(e) => setAmount(Number(e.target.value))}
               className="pr-16 font-medium text-lg"
-              min={1000}
-              max={10000000}
+              min={10000}
+              max={100000000}
             />
             <div className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-wealth-muted">
               USDT
@@ -80,14 +80,14 @@ const DepositAmountStep = ({
           <Label>Adjust Amount</Label>
           <Slider
             defaultValue={[amount]}
-            max={1000000}
-            min={1000}
-            step={1000}
+            max={100000000}
+            min={10000}
+            step={10000}
             onValueChange={handleAmountChange}
           />
           <div className="flex justify-between text-xs text-wealth-muted">
-            <span>1K USDT</span>
-            <span>1M USDT</span>
+            <span>10K USDT</span>
+            <span>100M USDT</span>
           </div>
         </div>
         
