@@ -47,8 +47,8 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
               variants={fadeInUp()}
               className="flex flex-col items-center gap-3"
             >
-              {/* Clean modern backdrop with subtle elegance */}
-              <div className="p-6 rounded-full bg-white shadow-premium">
+              {/* Clean backdrop with solid hexagon for social media use */}
+              <div className="p-6 rounded-full bg-white">
                 <div className="relative">
                   <PremiumNFTAvatar amount={amount} size="lg" />
                 </div>
@@ -65,7 +65,7 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
           ))}
         </motion.div>
         
-        <div className="relative p-8 md:p-12 rounded-2xl bg-white border border-wealth-gold/20 max-w-4xl mx-auto shadow-premium">
+        <div className="relative p-8 md:p-12 rounded-2xl bg-white border border-wealth-gold/20 max-w-4xl mx-auto">
           {/* Premium corner accents for a sophisticated look */}
           <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-wealth-gold/20 rounded-tl-xl"></div>
           <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-wealth-gold/20 rounded-tr-xl"></div>
@@ -75,13 +75,13 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="md:w-1/3 flex justify-center">
               <div className="relative">
-                {/* Enhanced premium display */}
-                <div className="p-6 rounded-full bg-white shadow-premium border border-wealth-gold/10">
+                {/* Simplified premium display for social media */}
+                <div className="p-6 rounded-full bg-white border border-wealth-gold/10">
                   <PremiumNFTAvatar amount={10000000} size="xl" />
                 </div>
                 
-                {/* Elegant tier badge */}
-                <div className="absolute -top-2 -right-2 bg-wealth-gold px-3 py-1 rounded-full text-xs font-bold text-wealth-dark border border-white shadow-premium">
+                {/* Clean tier badge */}
+                <div className="absolute -top-2 -right-2 bg-wealth-gold px-3 py-1 rounded-full text-xs font-bold text-wealth-dark border border-white">
                   Mythic
                 </div>
               </div>
@@ -95,7 +95,7 @@ const ProfileAvatarsSection = ({ onDeposit }: ProfileAvatarsSectionProps) => {
               </p>
               <Button 
                 onClick={onDeposit}
-                className="bg-gold-gradient text-wealth-dark font-bold hover:opacity-90 transition-opacity shadow-premium px-8 py-6"
+                className="bg-gold-gradient text-wealth-dark font-bold hover:opacity-90 transition-opacity px-8 py-6"
               >
                 Mint Your Premium Avatar
                 <ArrowRight className="h-5 w-5 ml-2" />

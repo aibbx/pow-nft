@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from "@/components/ui/card";
 import { DollarSign, ShieldCheck, Crown, Star, Gem, Sparkles, Medal, Diamond } from "lucide-react";
@@ -74,17 +73,14 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
             </div>
           </div>
           
-          {/* Main amount display - hexagonal avatar with enhanced styling */}
+          {/* Main amount display - hexagonal avatar with clean gold border for social media */}
           <div className="flex flex-col items-center justify-center py-8 mb-4">
             <div className="relative">
-              {/* More visible glow effect */}
-              <div className="absolute -inset-3 blur-lg opacity-50 -z-10 rounded-full bg-yellow-100" />
-              
               <Avatar 
                 shape="hexagon" 
                 className={cn(
-                  "h-32 w-32 shadow-premium bg-white overflow-hidden hexagon",
-                  "border-2 border-wealth-gold" // Enhanced border
+                  "h-32 w-32 bg-white overflow-hidden hexagon",
+                  "border-2 border-wealth-gold" // Clear border without glow
                 )}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
@@ -95,9 +91,9 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
                 </div>
               </Avatar>
               
-              {/* Badge for higher tier NFTs with enhanced styling */}
+              {/* Badge for higher tier NFTs with clean styling */}
               {amount >= 1000000 && (
-                <div className="absolute -top-2 -right-2 p-1 rounded-full shadow-premium bg-white border-2 border-wealth-gold">
+                <div className="absolute -top-2 -right-2 p-1 rounded-full bg-white border-2 border-wealth-gold">
                   {amount >= 10000000 ? 
                     <Diamond className="h-4 w-4 text-wealth-gold" /> : 
                     <Crown className="h-4 w-4 text-wealth-gold" />

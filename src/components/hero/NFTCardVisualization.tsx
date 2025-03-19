@@ -8,27 +8,7 @@ import FloatingElements from './FloatingElements';
 const NFTCardVisualization: React.FC = () => {
   return (
     <div className="relative w-full max-w-md mx-auto">
-      {/* Enhanced glow effect with pulsating animation */}
-      <div className="absolute -inset-4 bg-yellow-100/50 opacity-30 blur-xl rounded-2xl animate-pulse" />
-      
-      {/* Floating particles with gold tint */}
-      <motion.div 
-        className="absolute -top-10 -right-10 h-5 w-5 rounded-full bg-wealth-gold/30 blur-sm"
-        animate={{ y: [0, -10, 0], opacity: [0.3, 0.8, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-10 -left-5 h-3 w-3 rounded-full bg-wealth-gold/30 blur-sm"
-        animate={{ y: [0, 10, 0], opacity: [0.3, 0.7, 0.3] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      />
-      <motion.div 
-        className="absolute top-1/2 -right-8 h-4 w-4 rounded-full bg-wealth-gold/40 blur-sm"
-        animate={{ y: [0, -15, 0], opacity: [0.2, 0.6, 0.2] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
-      
-      {/* Card frame with shadow and animation */}
+      {/* Card frame with clean shadow and animation */}
       <motion.div 
         className="relative rounded-2xl overflow-hidden shadow-lg"
         whileHover={{ scale: 1.03, rotate: 1 }}
@@ -50,7 +30,7 @@ const NFTCardVisualization: React.FC = () => {
               </div>
             </div>
             
-            {/* Main NFT Visual - with enhanced gold hexagon */}
+            {/* Main NFT Visual - with clean gold hexagon */}
             <div className="flex-1 flex items-center justify-center">
               <GoldHexagon value="100M" />
             </div>
@@ -70,7 +50,7 @@ const NFTCardVisualization: React.FC = () => {
         </div>
       </motion.div>
       
-      {/* Enhanced floating elements */}
+      {/* Floating elements */}
       <FloatingElements />
     </div>
   );
