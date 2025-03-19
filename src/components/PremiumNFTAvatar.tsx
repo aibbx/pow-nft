@@ -65,15 +65,6 @@ const PremiumNFTAvatar = ({
     return <Verified className="text-wealth-dark" />;
   };
   
-  // Create gradient based on amount - enhanced gold
-  const getGradient = () => {
-    if (amount >= 100000000) return "premium-luxury-gradient"; // $100M+
-    if (amount >= 10000000) return "premium-platinum-gradient"; // $10M+
-    if (amount >= 1000000) return "premium-gold-gradient"; // $1M+
-    if (amount >= 100000) return "premium-silver-gradient"; // $100K+
-    return "premium-crystal-gradient"; // Default
-  };
-  
   // Get tier label based on amount
   const getTierLabel = () => {
     if (amount >= 100000000) return "Tier A10";
@@ -91,53 +82,40 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Enhanced gold glow effect */}
-      <div className={cn(
-        "absolute inset-0 blur-md opacity-40 -z-10 rounded-full",
-        getGradient()
-      )} />
+      {/* Subtle glow effect */}
+      <div className="absolute inset-0 blur-lg opacity-40 -z-10 rounded-full bg-yellow-100/50" />
       
-      {/* Premium hexagonal avatar with enhanced gold styling */}
+      {/* Hexagonal avatar with uniform styling */}
       <div className="relative">
         <Avatar 
           shape="hexagon"
           className={cn(
             sizes[size],
-            "border-2 overflow-hidden shadow-premium gold-border",
-            amount >= 1000000 ? "crystal-border" : "border-wealth-gold",
-            "premium-hexagon"
+            "overflow-hidden shadow-lg bg-white hexagon",
+            "border border-wealth-gold/10"
           )}
         >
-          {/* Inner content with clearer gold aesthetic */}
-          <div className={cn(
-            "absolute inset-0 flex flex-col items-center justify-center",
-            "glass-background"
-          )}>
+          {/* Inner content with clean styling */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white">
             <span className={cn(
               "font-bold", 
               fontSizes[size],
-              amount >= 10000000 ? "text-transparent bg-clip-text bg-wealth-gold-text" : "text-wealth-gold"
+              "text-wealth-gold"
             )}>
               {formattedAmount}
             </span>
-            <span className="text-xs text-wealth-dark font-semibold">USDT</span>
+            <span className="text-xs text-wealth-gold/80">USDT</span>
           </div>
-          
-          {/* Enhanced gold reflection effect */}
-          <div className="absolute inset-0 premium-reflection"></div>
         </Avatar>
         
-        {/* Premium verification badge with enhanced gold */}
+        {/* Badge icon */}
         <div className={cn(
-          "absolute bg-white rounded-full p-0.5 shadow-premium",
+          "absolute bg-white rounded-full p-0.5 shadow-md",
           verifiedBadgeSizes[size],
-          amount >= 10000000 ? "crystal-ring" : "ring-1 ring-wealth-gold",
+          "border border-wealth-gold/20",
           "z-10"
         )}>
-          <div className={cn(
-            "rounded-full p-0.5",
-            getGradient(),
-          )}>
+          <div className="rounded-full p-0.5 bg-wealth-gold/10">
             {getBadgeIcon()}
           </div>
         </div>
