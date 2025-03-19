@@ -65,13 +65,13 @@ const PremiumNFTAvatar = ({
     return <Verified className="text-wealth-dark" />;
   };
   
-  // Create gradient based on amount - simplified for cleaner appearance
+  // Create gradient based on amount - clear and expensive looking
   const getGradient = () => {
-    if (amount >= 100000000) return "premium-gold-gradient"; // $100M+
-    if (amount >= 10000000) return "premium-gold-gradient"; // $10M+
-    if (amount >= 1000000) return "premium-silver-gradient"; // $1M+
+    if (amount >= 100000000) return "premium-luxury-gradient"; // $100M+
+    if (amount >= 10000000) return "premium-platinum-gradient"; // $10M+
+    if (amount >= 1000000) return "premium-gold-gradient"; // $1M+
     if (amount >= 100000) return "premium-silver-gradient"; // $100K+
-    return "premium-simple-gradient"; // Default
+    return "premium-crystal-gradient"; // Default
   };
   
   const MotionComponent = animated ? motion.div : "div";
@@ -82,7 +82,7 @@ const PremiumNFTAvatar = ({
       whileHover={animated ? { scale: 1.05 } : undefined}
       transition={animated ? { type: "spring", stiffness: 400, damping: 10 } : undefined}
     >
-      {/* Simple clean glow effect */}
+      {/* Subtle glow effect */}
       <div className={cn(
         "absolute inset-0 blur-md opacity-30 -z-10 rounded-full",
         getGradient()
@@ -95,34 +95,35 @@ const PremiumNFTAvatar = ({
           className={cn(
             sizes[size],
             "border-2 overflow-hidden shadow-premium",
-            "border-white",
+            amount >= 1000000 ? "crystal-border" : "border-white/80",
             "premium-hexagon"
           )}
         >
-          {/* Inner content with clean aesthetic */}
+          {/* Inner content with clear aesthetic */}
           <div className={cn(
             "absolute inset-0 flex flex-col items-center justify-center",
-            "bg-white"
+            "glass-background"
           )}>
             <span className={cn(
               "font-bold", 
               fontSizes[size],
-              "text-wealth-gold"
+              amount >= 10000000 ? "text-transparent bg-clip-text bg-wealth-gold-text" : "text-wealth-gold"
             )}>
               {formattedAmount}
             </span>
             <span className="text-xs text-wealth-dark font-semibold">USDT</span>
           </div>
           
-          {/* Simple reflective effect */}
+          {/* Premium faceted reflection effect */}
           <div className="absolute inset-0 premium-reflection"></div>
         </Avatar>
         
-        {/* Clean verification badge */}
+        {/* Premium verification badge */}
         <div className={cn(
           "absolute bg-white rounded-full p-0.5 shadow-premium",
           verifiedBadgeSizes[size],
-          "ring-1 ring-wealth-gold z-10"
+          amount >= 10000000 ? "crystal-ring" : "ring-1 ring-wealth-gold/80",
+          "z-10"
         )}>
           <div className={cn(
             "rounded-full p-0.5",

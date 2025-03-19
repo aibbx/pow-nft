@@ -52,10 +52,11 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
   
   // Get gradient class based on amount with enhanced luxury gradients
   const getGradient = () => {
-    if (amount >= 100000000) return "premium-gold-gradient";
-    if (amount >= 10000000) return "premium-gold-gradient";
-    if (amount >= 1000000) return "premium-silver-gradient";
-    return "premium-simple-gradient";
+    if (amount >= 100000000) return "premium-luxury-gradient";
+    if (amount >= 10000000) return "premium-platinum-gradient";
+    if (amount >= 1000000) return "premium-gold-gradient";
+    if (amount >= 100000) return "premium-silver-gradient";
+    return "premium-crystal-gradient";
   };
   
   const badge = getBadgeDetails();
@@ -108,22 +109,31 @@ const NFTCard = ({ amount, id, tier, className }: NFTCardProps) => {
               <Avatar 
                 shape="hexagon" 
                 className={cn(
-                  "h-32 w-32 border-2 border-wealth-gold/40 shadow-premium overflow-hidden premium-hexagon", 
+                  "h-32 w-32 shadow-premium overflow-hidden premium-hexagon",
+                  amount >= 10000000 ? "crystal-border" : "border-2 border-wealth-gold/40",
                   getGradient()
                 )}
               >
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white backdrop-blur-none bg-white">
-                  <span className="font-display text-2xl font-bold text-wealth-gold">{formattedAmount}</span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white backdrop-blur-none glass-background">
+                  <span className={cn(
+                    "font-display text-2xl font-bold",
+                    amount >= 10000000 ? "text-transparent bg-clip-text bg-wealth-gold-text" : "text-wealth-gold"
+                  )}>
+                    {formattedAmount}
+                  </span>
                   <span className="text-xs text-wealth-dark">USDT</span>
                 </div>
                 
-                {/* Simple reflective effect */}
+                {/* Premium reflection effect */}
                 <div className="absolute inset-0 premium-reflection"></div>
               </Avatar>
               
               {/* Premium badge for higher tier NFTs */}
               {amount >= 1000000 && (
-                <div className="absolute -top-2 -right-2 bg-gold-gradient p-1 rounded-full shadow-premium">
+                <div className={cn(
+                  "absolute -top-2 -right-2 p-1 rounded-full shadow-premium",
+                  amount >= 10000000 ? "premium-luxury-gradient" : "premium-gold-gradient"
+                )}>
                   {amount >= 10000000 ? 
                     <Diamond className="h-4 w-4 text-black" /> : 
                     <Crown className="h-4 w-4 text-black" />
