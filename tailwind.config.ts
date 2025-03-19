@@ -26,12 +26,12 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				wealth: {
-					gold: '#D4AF37',
+					gold: '#F0B90B', // Updated to Binance gold
 					silver: '#C0C0C0',
-					cream: '#FFFDD0',
-					dark: '#1A1A1A',
+					cream: '#FFF8E1', // Warmer cream color
+					dark: '#1E2026', // Binance dark color
 					light: '#F8F9FA',
-					muted: '#8D8D8D'
+					muted: '#848E9C' // Binance muted text color
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -118,7 +118,7 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gold-gradient': 'linear-gradient(135deg, #BF953F 10%, #FCF6BA 50%, #B38728 60%, #FBF5B7 80%, #AA771C 100%)'
+				'gold-gradient': 'linear-gradient(135deg, #F0B90B 10%, #FFDD65 50%, #F0B90B 60%, #FFF3A3 80%, #F0B90B 100%)' // Updated gold gradient
 			},
 			backdropBlur: {
 				xs: '2px',
@@ -129,7 +129,7 @@ export default {
 			},
 			boxShadow: {
 				'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
-				'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.1)'
+				'premium': '0 10px 30px -5px rgba(240, 185, 11, 0.15)' // Updated with Binance gold tint
 			},
 			transitionTimingFunction: {
 				'bounce-in': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',

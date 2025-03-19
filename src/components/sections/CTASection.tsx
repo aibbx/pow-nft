@@ -25,7 +25,7 @@ const CTASection = ({ onDeposit }: CTASectionProps) => {
               transition={{ duration: 0.8 }}
               className="max-w-3xl mx-auto space-y-6"
             >
-              <span className="inline-block py-1 px-3 mb-4 text-xs font-medium tracking-wider uppercase bg-white/10 text-wealth-gold rounded-full">
+              <span className="inline-block py-1 px-3 mb-4 text-xs font-medium tracking-wider uppercase bg-wealth-gold/10 text-wealth-gold rounded-full">
                 Get Started Today
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white">
@@ -38,7 +38,7 @@ const CTASection = ({ onDeposit }: CTASectionProps) => {
               <div className="pt-4">
                 <Button 
                   onClick={onDeposit}
-                  className="bg-gold-gradient text-black font-medium hover:opacity-90 transition-opacity"
+                  className="bg-gold-gradient text-wealth-dark font-bold hover:opacity-90 transition-opacity"
                   size="lg"
                 >
                   Mint Your Wealth NFT Now

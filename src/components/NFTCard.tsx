@@ -21,7 +21,7 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
       transition={{ type: "spring", stiffness: 300 }}
       className={cn("", className)}
     >
-      <Card className="overflow-hidden border-wealth-gold/30 shadow-md group">
+      <Card className="overflow-hidden border-wealth-gold/30 shadow-md hover:shadow-premium group transition-all duration-300">
         {/* Top gradient line */}
         <div className="h-1 w-full bg-gold-gradient" />
         
@@ -30,7 +30,7 @@ const NFTCard = ({ amount, id, className }: NFTCardProps) => {
           <div className="flex justify-between items-start mb-6">
             <div>
               <div className="text-sm font-medium text-wealth-muted">PROOF OF WEALTH</div>
-              <div className="text-xl font-display font-bold">Stable NFT</div>
+              <div className="text-xl font-display font-bold">Binance NFT</div>
             </div>
             <div className="flex items-center bg-wealth-gold/10 px-3 py-1 rounded-full">
               <DollarSign className="h-3 w-3 mr-1 text-wealth-gold" />
