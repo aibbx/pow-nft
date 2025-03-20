@@ -52,9 +52,9 @@ const Navbar = () => {
           className="flex items-center space-x-2"
         >
           <div className="font-display text-2xl font-bold">
-            <span className="text-wealth-gold">Proof</span>
+            <span className="text-red-500">Proof</span>
             <span className="text-black">Of</span>
-            <span className="text-wealth-gold">Wealth</span>
+            <span className="text-red-500">Wealth</span>
           </div>
         </Link>
         
@@ -106,7 +106,7 @@ const NavLinks = ({ mobile = false, onNavLinkClick }: NavLinksProps) => {
           key={link.name}
           onClick={() => onNavLinkClick(link.sectionId)}
           className={cn(
-            "font-medium transition-colors hover:text-wealth-gold text-left",
+            "font-medium transition-colors hover:text-red-500 text-left",
             mobile ? "text-center py-2 w-full" : ""
           )}
         >
