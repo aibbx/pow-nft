@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-wealth-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 gap-8 mb-12">
           {/* Brand section */}
           <div className="space-y-4">
             <div className="font-display text-2xl font-bold">
@@ -19,23 +19,15 @@ const Footer = () => {
               The premier Stable NFT protocol that allows you to showcase your wealth through verifiable on-chain assets.
             </p>
             <div className="flex space-x-4">
-              <SocialLink href="#" icon={<Twitter className="h-4 w-4" />} />
+              <SocialLink 
+                href="https://twitter.com" 
+                icon={<Twitter className="h-4 w-4" />} 
+                label="Contact on X"
+                primary
+              />
               <SocialLink href="#" icon={<Github className="h-4 w-4" />} />
               <SocialLink href="#" icon={<MessageSquare className="h-4 w-4" />} />
             </div>
-          </div>
-          
-          {/* Contact */}
-          <div>
-            <h3 className="font-bold text-lg mb-4 text-wealth-gold">Contact</h3>
-            <ul className="space-y-2">
-              <li className="text-wealth-silver">
-                Email: <a href="mailto:info@proofofwealth.com" className="hover:text-white transition-colors">info@proofofwealth.com</a>
-              </li>
-              <li className="text-wealth-silver">
-                Support: <a href="mailto:support@proofofwealth.com" className="hover:text-white transition-colors">support@proofofwealth.com</a>
-              </li>
-            </ul>
           </div>
         </div>
         
@@ -52,7 +44,31 @@ const Footer = () => {
   );
 };
 
-const SocialLink = ({ href, icon }: { href: string; icon: React.ReactNode }) => {
+const SocialLink = ({ 
+  href, 
+  icon, 
+  label, 
+  primary = false 
+}: { 
+  href: string; 
+  icon: React.ReactNode; 
+  label?: string;
+  primary?: boolean;
+}) => {
+  if (primary && label) {
+    return (
+      <a 
+        href={href} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="flex items-center space-x-2 px-4 py-2 bg-wealth-gold text-wealth-dark rounded-full hover:bg-wealth-gold/90 transition-colors font-medium"
+      >
+        {icon}
+        <span>{label}</span>
+      </a>
+    );
+  }
+  
   return (
     <a 
       href={href} 
