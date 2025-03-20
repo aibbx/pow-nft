@@ -1,58 +1,68 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Gold hexagon background with gradient -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Gold gradient definition -->
   <defs>
     <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F0B90B" />
       <stop offset="50%" stop-color="#E6B325" />
       <stop offset="100%" stop-color="#FFDC62" />
     </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
   
-  <!-- Base hexagon -->
+  <!-- Background circle for social media -->
+  <circle cx="200" cy="200" r="200" fill="#10121A" />
+  
+  <!-- Glowing effect -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="#E6B325" stroke-width="2" opacity="0.2" filter="url(#glow)" />
+  
+  <!-- Main hexagon -->
   <polygon 
-    points="25,0 75,0 100,50 75,100 25,100 0,50" 
+    points="125,80 275,80 350,200 275,320 125,320 50,200" 
     fill="#10121A"
     stroke="url(#goldGradient)"
-    stroke-width="5"
+    stroke-width="10"
   />
   
   <!-- Inner hexagon for depth -->
   <polygon 
-    points="30,5 70,5 95,50 70,95 30,95 5,50" 
+    points="140,95 260,95 330,200 260,305 140,305 70,200" 
     fill="rgba(230, 179, 37, 0.1)"
     stroke="url(#goldGradient)"
-    stroke-width="1"
-    stroke-dasharray="1,1"
+    stroke-width="2"
+    stroke-dasharray="3,2"
   />
   
   <!-- PoW text -->
   <text 
-    x="50" 
-    y="45" 
+    x="200" 
+    y="180" 
     font-family="Arial, sans-serif" 
     font-weight="bold" 
-    font-size="22" 
+    font-size="64" 
     text-anchor="middle" 
     fill="#E6B325">PoW</text>
     
   <!-- NFT text -->
   <text 
-    x="50" 
-    y="65" 
+    x="200" 
+    y="240" 
     font-family="Arial, sans-serif" 
     font-weight="bold" 
-    font-size="18" 
+    font-size="48" 
     text-anchor="middle" 
     fill="#E6B325">NFT</text>
     
   <!-- $ symbol for wealth -->
   <text 
-    x="50" 
-    y="85" 
+    x="200" 
+    y="290" 
     font-family="Arial, sans-serif" 
     font-weight="bold" 
-    font-size="22" 
+    font-size="54" 
     text-anchor="middle" 
     fill="#E6B325">$</text>
 </svg>
