@@ -9,7 +9,7 @@ const HowItWorksSection = () => {
     {
       icon: <Wallet className="h-6 w-6" />,
       title: "Connect Your Wallet",
-      description: "Simply connect your crypto wallet to our secure platform in just a few clicks."
+      description: "Simply connect your crypto wallet to our secure Protocol in just a few clicks."
     },
     {
       icon: <DollarSign className="h-6 w-6" />,

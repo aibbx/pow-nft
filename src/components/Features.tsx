@@ -47,10 +47,10 @@ const Features = () => {
             Premium Features
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            The Premier Platform for <span className="bg-clip-text text-transparent bg-gold-gradient">Wealth Visualization</span>
+            The Premier Protocol for <span className="bg-clip-text text-transparent bg-gold-gradient">Wealth Visualization</span>
           </h2>
           <p className="text-lg text-wealth-muted">
-            Our Proof-of-Wealth platform seamlessly combines the security of stablecoins with the uniqueness of NFTs, 
+            Our Proof-of-Wealth Protocol seamlessly combines the security of stablecoins with the uniqueness of NFTs, 
             creating a premium system for showcasing your financial achievements.
           </p>
         </motion.div>
