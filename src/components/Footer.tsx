@@ -19,18 +19,18 @@ const Footer = () => {
             </p>
           </div>
           
-          {/* Social Links - Now on the right, stacked vertically */}
+          {/* Social Links - Now with GitHub first, then X */}
           <div className="flex flex-col space-y-3">
-            <SocialLink 
-              href="https://twitter.com/PoWProtocol" 
-              icon={<X className="h-4 w-4" />} 
-              label="Contact on X"
-              primary
-            />
             <SocialLink 
               href="https://github.com/aibbx/pow-nft.git" 
               icon={<Github className="h-4 w-4" />} 
               label="Check on GitHub"
+              primary
+            />
+            <SocialLink 
+              href="https://twitter.com/PoWProtocol" 
+              icon={<X className="h-4 w-4" />} 
+              label="Contact on X"
               primary
             />
           </div>
