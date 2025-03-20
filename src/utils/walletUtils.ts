@@ -6,9 +6,14 @@ interface EthereumProvider {
   removeListener: (eventName: string, handler: (result: any) => void) => void;
 }
 
+// Properly extend the Window interface
+interface WindowWithOKXWallet extends Window {
+  okxwallet?: EthereumProvider;
+}
+
 // OKX Wallet detection functions
 const isOKXWalletInstalled = (): boolean => {
-  return window.okxwallet !== undefined;
+  return (window as WindowWithOKXWallet).okxwallet !== undefined;
 };
 
 export const connectOKXWallet = async (): Promise<void> => {
@@ -18,7 +23,7 @@ export const connectOKXWallet = async (): Promise<void> => {
     }
     
     // Connect to OKX Wallet (uses EIP-1193 interface)
-    await window.okxwallet.request({ method: 'eth_requestAccounts' });
+    await (window as WindowWithOKXWallet).okxwallet!.request({ method: 'eth_requestAccounts' });
     console.log('Connected to OKX Wallet');
   } catch (error) {
     console.error('Error connecting to OKX Wallet:', error);
@@ -29,7 +34,7 @@ export const connectOKXWallet = async (): Promise<void> => {
 export const getAccount = async (): Promise<string | null> => {
   try {
     if (isOKXWalletInstalled()) {
-      const accounts = await window.okxwallet.request({ method: 'eth_accounts' });
+      const accounts = await (window as WindowWithOKXWallet).okxwallet!.request({ method: 'eth_accounts' });
       return accounts[0] || null;
     }
     return null;
@@ -39,12 +44,9 @@ export const getAccount = async (): Promise<string | null> => {
   }
 };
 
-// Window interface augmentation
-interface WindowWithEthereum extends Window {
-  okxwallet?: EthereumProvider;
-}
-
+// Extend the Window interface globally using declaration merging
 declare global {
-  // Use type reference instead of interface extension
-  type Window = WindowWithEthereum;
+  interface Window {
+    okxwallet?: EthereumProvider;
+  }
 }
