@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Twitter, Github } from "lucide-react";
+import { X, Github } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="flex items-center space-x-4">
             <SocialLink 
               href="https://twitter.com" 
-              icon={<Twitter className="h-4 w-4" />} 
+              icon={<X className="h-4 w-4" />} 
               label="Contact on X"
               primary
             />
