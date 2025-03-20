@@ -41,7 +41,7 @@ const WalletConnectButton = ({ variant = 'default', className }: WalletConnectBu
       onClick={connectWallet}
     >
       <WalletIcon className="mr-2 h-4 w-4" />
-      {isConnecting ? "Connecting..." : "Wallet Connect"}
+      {isConnecting ? "Connecting..." : "Connect Wallet"}
     </Button>
   );
 };
