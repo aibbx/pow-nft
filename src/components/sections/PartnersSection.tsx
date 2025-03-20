@@ -6,9 +6,9 @@ import { fadeInUp, staggerContainer } from '@/utils/animation';
 const PartnersSection = () => {
   // Using placeholders instead of actual partner names
   const partners = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
+    { id: 1, number: "1" },
+    { id: 2, number: "2" },
+    { id: 3, number: "3" },
     { id: 4 },
     { id: 5 }
   ];
@@ -50,7 +50,7 @@ const PartnersSection = () => {
               <div className="bg-white/5 p-6 rounded-xl hover:bg-wealth-gold/10 transition-colors duration-300 w-full flex items-center justify-center h-24 relative overflow-hidden">
                 <div className="absolute inset-0 shimmer"></div>
                 <div className="w-10 h-10 rounded-full bg-wealth-gold/20 flex items-center justify-center">
-                  <span className="text-wealth-gold text-xs font-bold">?</span>
+                  <span className="text-wealth-gold text-xs font-bold">{partner.number || "?"}</span>
                 </div>
               </div>
               <p className="font-medium text-center text-wealth-gold/80">Coming Soon</p>
