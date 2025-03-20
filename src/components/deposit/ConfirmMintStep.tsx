@@ -69,9 +69,9 @@ const ConfirmMintStep = ({ amount, handlePreviousStep, handleMint }: ConfirmMint
           <div className="bg-wealth-gold/5 p-4 rounded-lg flex items-start space-x-3">
             <Wallet className="h-5 w-5 text-wealth-gold shrink-0 mt-0.5" />
             <div className="text-sm">
-              <p className="font-medium mb-1">Wallet Connection Required</p>
+              <p className="font-medium mb-1">OKX Wallet Required</p>
               <p className="text-wealth-muted">
-                Connect your wallet to approve this transaction and mint your NFT.
+                Connect your OKX wallet to approve this transaction and mint your NFT.
               </p>
             </div>
           </div>

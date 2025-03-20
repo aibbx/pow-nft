@@ -1,15 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { WalletIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWallet } from '@/contexts/WalletContext';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 interface WalletConnectButtonProps {
   variant?: 'default' | 'fancy';
@@ -18,12 +12,6 @@ interface WalletConnectButtonProps {
 
 const WalletConnectButton = ({ variant = 'default', className }: WalletConnectButtonProps) => {
   const { isConnected, walletAddress, connectWallet, disconnectWallet, isConnecting } = useWallet();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const handleConnect = async (type: 'metamask' | 'okx') => {
-    await connectWallet(type);
-    setIsDropdownOpen(false);
-  };
 
   // Format address for display
   const formatAddress = (address: string) => {
@@ -36,60 +24,25 @@ const WalletConnectButton = ({ variant = 'default', className }: WalletConnectBu
 
   if (isConnected && walletAddress) {
     return (
-      <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
-        <DropdownMenuTrigger asChild>
-          <Button 
-            className={cn(buttonClass, className)}
-          >
-            <WalletIcon className="mr-2 h-4 w-4" />
-            {formatAddress(walletAddress)}
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={disconnectWallet}>
-            Disconnect Wallet
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <Button 
+        className={cn(buttonClass, className)}
+        onClick={disconnectWallet}
+      >
+        <WalletIcon className="mr-2 h-4 w-4" />
+        {formatAddress(walletAddress)}
+      </Button>
     );
   }
 
   return (
-    <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button 
-          className={cn(buttonClass, className)}
-          disabled={isConnecting}
-        >
-          <WalletIcon className="mr-2 h-4 w-4" />
-          {isConnecting ? "Connecting..." : "Connect Wallet"}
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => handleConnect('metamask')}>
-          <img 
-            src="/metamask-logo.svg" 
-            alt="MetaMask" 
-            className="w-5 h-5 mr-2"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-            }}
-          />
-          Connect with MetaMask
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleConnect('okx')}>
-          <img 
-            src="/okx-logo.svg" 
-            alt="OKX Wallet" 
-            className="w-5 h-5 mr-2"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none';
-            }}
-          />
-          Connect with OKX Wallet
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button 
+      className={cn(buttonClass, className)}
+      disabled={isConnecting}
+      onClick={connectWallet}
+    >
+      <WalletIcon className="mr-2 h-4 w-4" />
+      {isConnecting ? "Connecting..." : "Connect OKX Wallet"}
+    </Button>
   );
 };
 

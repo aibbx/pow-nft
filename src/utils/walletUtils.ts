@@ -1,30 +1,14 @@
 
-import { MetaMask } from '@web3-react/metamask';
-import { Connector } from '@web3-react/types';
-import { initializeConnector } from '@web3-react/core';
-
-export interface WalletInfo {
-  name: string;
-  icon: string;
-  connector: Connector;
+// Define proper typings for Ethereum provider
+interface EthereumProvider {
+  request: (args: {method: string, params?: any[]}) => Promise<any>;
+  on: (eventName: string, handler: (result: any) => void) => void;
+  removeListener: (eventName: string, handler: (result: any) => void) => void;
 }
-
-// Initialize MetaMask connector properly with the required argument
-const [metaMaskConnector] = initializeConnector<MetaMask>((actions) => new MetaMask({ actions }));
 
 // OKX Wallet detection functions
 const isOKXWalletInstalled = (): boolean => {
   return window.okxwallet !== undefined;
-};
-
-export const connectMetaMask = async (): Promise<void> => {
-  try {
-    await metaMaskConnector.activate();
-    console.log('Connected to MetaMask');
-  } catch (error) {
-    console.error('Error connecting to MetaMask:', error);
-    throw error;
-  }
 };
 
 export const connectOKXWallet = async (): Promise<void> => {
@@ -42,18 +26,11 @@ export const connectOKXWallet = async (): Promise<void> => {
   }
 };
 
-export const getAccount = async (wallet: 'metamask' | 'okx'): Promise<string | null> => {
+export const getAccount = async (): Promise<string | null> => {
   try {
-    if (wallet === 'metamask') {
-      if (metaMaskConnector.provider) {
-        const accounts = await metaMaskConnector.provider.request({ method: 'eth_accounts' });
-        return accounts[0] || null;
-      }
-    } else if (wallet === 'okx') {
-      if (isOKXWalletInstalled()) {
-        const accounts = await window.okxwallet.request({ method: 'eth_accounts' });
-        return accounts[0] || null;
-      }
+    if (isOKXWalletInstalled()) {
+      const accounts = await window.okxwallet.request({ method: 'eth_accounts' });
+      return accounts[0] || null;
     }
     return null;
   } catch (error) {
@@ -62,38 +39,8 @@ export const getAccount = async (wallet: 'metamask' | 'okx'): Promise<string | n
   }
 };
 
-export const getSupportedWallets = (): WalletInfo[] => {
-  const wallets: WalletInfo[] = [
-    {
-      name: 'MetaMask',
-      icon: 'metamask-logo',
-      connector: metaMaskConnector,
-    }
-  ];
-  
-  // Add OKX wallet if detected
-  if (typeof window !== 'undefined' && window.okxwallet) {
-    wallets.push({
-      name: 'OKX Wallet',
-      icon: 'okx-logo',
-      connector: {} as Connector, // OKX uses window.okxwallet directly
-    });
-  }
-  
-  return wallets;
-};
-
-// Define proper typings for Ethereum provider
-interface EthereumProvider {
-  request: (args: {method: string, params?: any[]}) => Promise<any>;
-  on: (eventName: string, handler: (result: any) => void) => void;
-  removeListener: (eventName: string, handler: (result: any) => void) => void;
-}
-
-// Update the global declaration to use augmentation syntax instead
-// This avoids conflicts with other declarations of Window interface
+// Window interface augmentation
 interface WindowWithEthereum extends Window {
-  ethereum?: EthereumProvider;
   okxwallet?: EthereumProvider;
 }
 
