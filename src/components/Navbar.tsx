@@ -52,9 +52,9 @@ const Navbar = () => {
           className="flex items-center space-x-2"
         >
           <div className="font-display text-2xl font-bold">
-            <span className="text-wealth-gold">Proof</span>
-            <span className="text-black">of</span>
-            <span className="text-wealth-gold">Wealth</span>
+            <span className="text-wealth-gold font-extrabold drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)] tracking-tight">Proof</span>
+            <span className="text-black font-bold">of</span>
+            <span className="text-wealth-gold font-extrabold drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)] tracking-tight">Wealth</span>
           </div>
         </Link>
         
