@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-wealth-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-8 mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
           {/* Brand section */}
           <div className="space-y-4">
             <div className="font-display text-2xl font-bold">
@@ -18,16 +18,18 @@ const Footer = () => {
             <p className="text-sm text-wealth-silver max-w-xs">
               The premier Stable NFT protocol that allows you to showcase your wealth through verifiable on-chain assets.
             </p>
-            <div className="flex space-x-4">
-              <SocialLink 
-                href="https://twitter.com" 
-                icon={<Twitter className="h-4 w-4" />} 
-                label="Contact on X"
-                primary
-              />
-              <SocialLink href="#" icon={<Github className="h-4 w-4" />} />
-              <SocialLink href="#" icon={<MessageSquare className="h-4 w-4" />} />
-            </div>
+          </div>
+          
+          {/* Social Links - Now on the right */}
+          <div className="flex items-center space-x-4">
+            <SocialLink 
+              href="https://twitter.com" 
+              icon={<Twitter className="h-4 w-4" />} 
+              label="Contact on X"
+              primary
+            />
+            <SocialLink href="#" icon={<Github className="h-4 w-4" />} />
+            <SocialLink href="#" icon={<MessageSquare className="h-4 w-4" />} />
           </div>
         </div>
         
