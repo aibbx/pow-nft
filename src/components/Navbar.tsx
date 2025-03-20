@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -29,9 +30,11 @@ const Navbar = () => {
           to="/" 
           className="flex items-center space-x-2"
         >
-          <span className="font-display text-2xl font-bold bg-clip-text text-transparent bg-gold-gradient">
-            Proof<span className="text-wealth-dark">Of</span>Wealth
-          </span>
+          <div className="font-display text-2xl font-bold">
+            <span className="text-wealth-gold">Proof</span>
+            <span className="text-white">Of</span>
+            <span className="text-wealth-gold">Wealth</span>
+          </div>
         </Link>
         
         {/* Desktop Navigation */}
