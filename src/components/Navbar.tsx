@@ -51,16 +51,10 @@ const Navbar = () => {
           to="/" 
           className="flex items-center space-x-2"
         >
-          <div className="font-display flex items-baseline">
-            <span className="text-wealth-gold text-2xl font-bold relative">
-              Proof
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-wealth-gold/50 rounded-full"></span>
-            </span>
-            <span className="text-wealth-muted text-lg font-light italic mx-0.5">of</span>
-            <span className="text-wealth-gold font-black text-3xl tracking-tight drop-shadow-lg relative">
-              Wealth
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-wealth-gold rounded-full"></span>
-            </span>
+          <div className="font-display text-2xl font-bold">
+            <span className="text-wealth-gold">Proof</span>
+            <span className="text-black">of</span>
+            <span className="text-wealth-gold">Wealth</span>
           </div>
         </Link>
         
