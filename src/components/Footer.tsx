@@ -15,7 +15,7 @@ const Footer = () => {
               <span className="text-wealth-gold">Wealth</span>
             </div>
             <p className="text-sm text-wealth-silver max-w-xs">
-              The premier Stable NFT protocol that allows you to showcase your wealth through verifiable on-chain assets.
+              The premier stable NFT protocol that allows you to showcase your wealth through verifiable on-chain assets.
             </p>
           </div>
           
