@@ -4,12 +4,13 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from '@/utils/animation';
 
 const PartnersSection = () => {
+  // Using placeholders instead of actual partner names
   const partners = [
-    { name: "Ethereum", logo: "/public/ethereum-logo.svg" },
-    { name: "Binance", logo: "/public/binance-logo.svg" },
-    { name: "Coinbase", logo: "/public/coinbase-logo.svg" },
-    { name: "Metamask", logo: "/public/metamask-logo.svg" },
-    { name: "OKX", logo: "/public/okx-logo.svg" }
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 }
   ];
 
   return (
@@ -26,10 +27,10 @@ const PartnersSection = () => {
             Prestigious Collaborations
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            Our <span className="text-wealth-gold">Partners</span> in Excellence
+            <span className="text-wealth-gold">Huge Surprise</span> Coming Soon
           </h2>
           <p className="text-lg text-wealth-silver">
-            We collaborate with industry leaders to provide you with the most secure and prestigious wealth verification experience.
+            We collaborate with social network leaders to provide you with the most prestigious and secure wealth verification experience.
           </p>
         </motion.div>
         
@@ -40,20 +41,19 @@ const PartnersSection = () => {
           whileInView="animate"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {partners.map((partner, index) => (
+          {partners.map((partner) => (
             <motion.div 
-              key={index}
+              key={partner.id}
               variants={fadeInUp()}
               className="flex flex-col items-center gap-4"
             >
-              <div className="bg-white/10 p-6 rounded-xl hover:bg-wealth-gold/10 transition-colors duration-300 w-full flex items-center justify-center h-24">
-                <img 
-                  src={partner.logo} 
-                  alt={`${partner.name} logo`}
-                  className="h-10 max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-                />
+              <div className="bg-white/5 p-6 rounded-xl hover:bg-wealth-gold/10 transition-colors duration-300 w-full flex items-center justify-center h-24 relative overflow-hidden">
+                <div className="absolute inset-0 shimmer"></div>
+                <div className="w-10 h-10 rounded-full bg-wealth-gold/20 flex items-center justify-center">
+                  <span className="text-wealth-gold text-xs font-bold">?</span>
+                </div>
               </div>
-              <p className="font-medium text-center">{partner.name}</p>
+              <p className="font-medium text-center text-wealth-gold/80">Coming Soon</p>
             </motion.div>
           ))}
         </motion.div>
