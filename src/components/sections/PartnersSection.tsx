@@ -43,7 +43,7 @@ const PartnersSection = () => {
             <motion.div 
               key={partner.id}
               variants={fadeInUp()}
-              className="flex flex-col items-center gap-4"
+              className="flex flex-col items-center"
             >
               <div className="bg-white/5 p-6 rounded-xl hover:bg-wealth-gold/10 transition-colors duration-300 w-full flex items-center justify-center h-24 relative overflow-hidden">
                 <div className="absolute inset-0 shimmer"></div>
@@ -51,7 +51,6 @@ const PartnersSection = () => {
                   <span className="text-wealth-gold text-sm font-bold">{partner.name}</span>
                 </div>
               </div>
-              <p className="font-medium text-center text-wealth-gold/80">Coming Soon</p>
             </motion.div>
           ))}
         </motion.div>
