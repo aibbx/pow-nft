@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Brand section */}
           <div className="space-y-4">
             <div className="font-display text-2xl font-bold">
-              <span className="text-red-500">Proof</span>
+              <span className="text-wealth-gold">Proof</span>
               <span className="text-black">Of</span>
-              <span className="text-red-500">Wealth</span>
+              <span className="text-wealth-gold">Wealth</span>
             </div>
             <p className="text-sm text-wealth-silver max-w-xs">
               The premier Stable NFT protocol that allows you to showcase your wealth through verifiable on-chain assets.
@@ -62,7 +62,7 @@ const SocialLink = ({
         href={href} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="flex items-center space-x-2 px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors font-medium"
+        className="flex items-center space-x-2 px-4 py-2 bg-wealth-gold text-wealth-dark rounded-full hover:bg-wealth-gold/90 transition-colors font-medium"
       >
         {icon}
         <span>{label}</span>
@@ -75,7 +75,7 @@ const SocialLink = ({
       href={href} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="p-2 bg-white/10 rounded-full hover:bg-red-500/20 transition-colors"
+      className="p-2 bg-white/10 rounded-full hover:bg-wealth-gold/20 transition-colors"
     >
       {icon}
     </a>
