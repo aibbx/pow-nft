@@ -29,13 +29,13 @@ const NFTCollectionSection = ({ onDeposit }: NFTCollectionSectionProps) => {
           variants={fadeInUp()}
         >
           <span className="inline-block py-1 px-3 mb-4 text-xs font-medium tracking-wider uppercase bg-wealth-gold/10 text-wealth-gold rounded-full">
-            Wealth Display
+            Luxury Collection
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            Our <span className="bg-clip-text text-transparent bg-gold-gradient">Premium</span> NFT Collection
+            Our <span className="bg-clip-text text-transparent bg-gold-gradient">Exclusive</span> NFT Collection
           </h2>
           <p className="text-lg text-wealth-muted">
-            Each NFT represents a specific amount of deposited USDT, providing a verifiable proof of your wealth.
+            Each beautifully designed NFT represents a specific amount of your deposited USDT, providing a visual representation of your wealth that you can proudly display.
           </p>
         </motion.div>
         
@@ -63,7 +63,7 @@ const NFTCollectionSection = ({ onDeposit }: NFTCollectionSectionProps) => {
             size="lg"
           >
             <Wallet className="mr-2 h-4 w-4" />
-            Deposit & Mint Your NFT
+            Create Your Personal NFT Now
           </Button>
         </div>
       </div>

@@ -26,14 +26,14 @@ const CTASection = ({ onDeposit }: CTASectionProps) => {
               className="max-w-3xl mx-auto space-y-6"
             >
               <span className="inline-block py-1 px-3 mb-4 text-xs font-medium tracking-wider uppercase bg-wealth-gold/10 text-wealth-gold rounded-full">
-                Get Started Today
+                Join Us Today
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white">
-                Ready to Display Your <span className="bg-clip-text text-transparent bg-gold-gradient">Wealth</span>?
+                Ready to Showcase Your <span className="bg-clip-text text-transparent bg-gold-gradient">Financial Success</span>?
               </h2>
               <p className="text-lg text-wealth-silver max-w-2xl mx-auto">
-                Join the exclusive community of Proof-of-Wealth NFT holders and showcase 
-                your financial status with verifiable on-chain assets.
+                Join our growing community of Proof-of-Wealth NFT holders and display 
+                your financial achievements with beautiful, verifiable NFTs backed by real assets.
               </p>
               <div className="pt-4">
                 <Button 
@@ -41,7 +41,7 @@ const CTASection = ({ onDeposit }: CTASectionProps) => {
                   className="bg-gold-gradient text-wealth-dark font-bold hover:opacity-90 transition-opacity"
                   size="lg"
                 >
-                  Mint Your Wealth NFT Now
+                  Create Your Wealth NFT Today
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>

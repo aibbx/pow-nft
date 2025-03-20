@@ -13,23 +13,23 @@ const Features = () => {
   const features = [
     {
       icon: <WalletIcon className="h-6 w-6" />,
-      title: "Deposit & Mint",
-      description: "Deposit your USDT and mint a corresponding Stable NFT that represents your wealth."
+      title: "Simple Minting Process",
+      description: "Deposit your USDT and instantly receive a beautiful NFT that represents your verified wealth."
     },
     {
       icon: <Package className="h-6 w-6" />,
-      title: "Verifiable NFTs",
-      description: "Each NFT is verifiably backed by USDT deposits, providing proof of your wealth on-chain."
+      title: "100% Backed Assets",
+      description: "Every NFT is fully backed by your USDT deposits, creating transparent proof of your wealth on the blockchain."
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
-      title: "Trade & Transfer",
-      description: "Trade your Wealth NFTs on marketplaces or transfer them to showcase your financial status."
+      title: "Flexible Ownership",
+      description: "Freely trade, transfer, or showcase your Wealth NFTs across platforms to highlight your financial achievements."
     },
     {
       icon: <ShieldCheck className="h-6 w-6" />,
-      title: "Secure Storage",
-      description: "Your funds are securely managed with industry-leading security practices."
+      title: "Enhanced Security",
+      description: "Your assets are protected with state-of-the-art security measures, giving you complete peace of mind."
     }
   ];
 
@@ -44,14 +44,14 @@ const Features = () => {
           variants={fadeInUp()}
         >
           <span className="inline-block py-1 px-3 mb-4 text-xs font-medium tracking-wider uppercase bg-wealth-gold/10 text-wealth-gold rounded-full">
-            Key Features
+            Premium Features
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            The Ultimate Platform for <span className="bg-clip-text text-transparent bg-gold-gradient">Wealth Display</span>
+            The Premier Platform for <span className="bg-clip-text text-transparent bg-gold-gradient">Wealth Visualization</span>
           </h2>
           <p className="text-lg text-wealth-muted">
-            Proof-of-Wealth combines the security of stable coins with the flexibility of NFTs 
-            to create a premium wealth verification system.
+            Our Proof-of-Wealth platform seamlessly combines the security of stablecoins with the uniqueness of NFTs, 
+            creating a premium system for showcasing your financial achievements.
           </p>
         </motion.div>
 

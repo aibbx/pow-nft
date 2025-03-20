@@ -23,9 +23,9 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
             Exclusive Proof of Wealth Protocol
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">
-            <span className="block">Showcase Your Wealth</span>
+            <span className="block">Elevate Your Digital Status</span>
             <span className="bg-clip-text text-transparent bg-gold-gradient drop-shadow-sm">
-              With Elite Status NFTs
+              With Premium Wealth NFTs
             </span>
           </h1>
         </motion.div>
@@ -34,7 +34,7 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
           className="text-lg md:text-xl text-wealth-muted max-w-xl"
           variants={fadeInUp(0.2)}
         >
-          Join the exclusive club of verified wealthy individuals. Our Proof-of-Wealth NFTs are the ultimate digital status symbol for those who want to make a statement.
+          Welcome to the exclusive community of verified wealthy individuals. Our Proof-of-Wealth NFTs represent a new standard of digital prestige for those who want to showcase their financial achievements.
         </motion.p>
         
         <motion.div 
@@ -46,7 +46,7 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
             className="bg-gold-gradient text-black font-bold hover:opacity-90 transition-opacity group shadow-premium"
             onClick={onDeposit}
           >
-            Mint Your Elite NFT
+            Create Your Premium NFT
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button 
@@ -54,7 +54,7 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
             variant="outline" 
             className="border-wealth-gold/30 text-wealth-dark hover:bg-wealth-gold/5"
           >
-            Explore Collection
+            Browse Collection
           </Button>
         </motion.div>
       </div>
@@ -64,9 +64,9 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
         variants={fadeInUp(0.4)}
       >
         {[
-          { icon: <Diamond className="h-5 w-5" />, text: "Verified Wealth" },
-          { icon: <Crown className="h-5 w-5" />, text: "Elite Status" },
-          { icon: <Star className="h-5 w-5" />, text: "Social Prestige" },
+          { icon: <Diamond className="h-5 w-5" />, text: "Verified Assets" },
+          { icon: <Crown className="h-5 w-5" />, text: "Premium Status" },
+          { icon: <Star className="h-5 w-5" />, text: "Digital Prestige" },
         ].map((feature, i) => (
           <div 
             key={i} 

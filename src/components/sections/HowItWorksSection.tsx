@@ -8,23 +8,23 @@ const HowItWorksSection = () => {
   const steps = [
     {
       icon: <Wallet className="h-6 w-6" />,
-      title: "Connect Wallet",
-      description: "Connect your cryptocurrency wallet to the Proof-of-Wealth platform."
+      title: "Connect Your Wallet",
+      description: "Simply connect your crypto wallet to our secure platform in just a few clicks."
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
-      title: "Deposit USDT",
-      description: "Deposit your USDT into the smart contract to back your NFT."
+      title: "Make Your Deposit",
+      description: "Deposit any amount of USDT to back your personalized NFT through our secure protocol."
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,
-      title: "Mint NFT",
-      description: "Mint your Proof-of-Wealth NFT that represents your deposited value."
+      title: "Receive Your NFT",
+      description: "Instantly receive your unique Proof-of-Wealth NFT that visually represents your deposited value."
     },
     {
       icon: <LinkIcon className="h-6 w-6" />,
-      title: "Display & Utilize",
-      description: "Showcase your wealth or use your NFT for various DeFi applications."
+      title: "Showcase Your Status",
+      description: "Display your wealth NFT across social platforms or utilize it within the growing DeFi ecosystem."
     }
   ];
 
@@ -39,14 +39,14 @@ const HowItWorksSection = () => {
           variants={fadeInUp()}
         >
           <span className="inline-block py-1 px-3 mb-4 text-xs font-medium tracking-wider uppercase bg-wealth-gold/10 text-wealth-gold rounded-full">
-            Simple Process
+            Easy Process
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            How Proof of Wealth <span className="bg-clip-text text-transparent bg-gold-gradient">Works</span>
+            How To Get Your <span className="bg-clip-text text-transparent bg-gold-gradient">Wealth NFT</span>
           </h2>
           <p className="text-lg text-wealth-muted">
-            With just a few simple steps, you can secure your Proof-of-Wealth NFT 
-            and showcase your financial strength.
+            Creating your personalized Proof-of-Wealth NFT is simple and straightforward. 
+            Follow these easy steps to join our exclusive community.
           </p>
         </motion.div>
         
