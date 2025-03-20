@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -32,9 +33,9 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
             Exclusive Proof of Wealth Protocol
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">
-            <span className="block">Elevate Your Digital Status</span>
-            <span className="bg-clip-text text-transparent bg-gold-gradient drop-shadow-sm">
-              With Premier PoW NFTs
+            <span className="block mb-2">Elevate Your Digital Status</span>
+            <span className="bg-gold-gradient inline-block px-2 py-1 text-black rounded-md shadow-premium">
+              With Premier Stable NFTs
             </span>
           </h1>
         </motion.div>
