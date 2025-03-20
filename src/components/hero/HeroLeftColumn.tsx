@@ -56,7 +56,7 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
             className="bg-gold-gradient text-black font-bold hover:opacity-90 transition-opacity group shadow-premium"
             onClick={onDeposit}
           >
-            Create Your Wealth Status NFT
+            Create Your PoW NFT
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button 

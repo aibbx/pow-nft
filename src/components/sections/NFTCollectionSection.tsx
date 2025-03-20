@@ -63,7 +63,7 @@ const NFTCollectionSection = ({ onDeposit }: NFTCollectionSectionProps) => {
             size="lg"
           >
             <Wallet className="mr-2 h-4 w-4" />
-            Create Your Personal NFT Now
+            Create Your PoW NFT Now
           </Button>
         </div>
       </div>

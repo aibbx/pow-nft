@@ -41,7 +41,7 @@ const CTASection = ({ onDeposit }: CTASectionProps) => {
                   className="bg-gold-gradient text-wealth-dark font-bold hover:opacity-90 transition-opacity"
                   size="lg"
                 >
-                  Create Your Wealth NFT Today
+                  Create Your PoW NFT Today
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
