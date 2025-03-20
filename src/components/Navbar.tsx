@@ -84,7 +84,7 @@ interface NavLinksProps {
 const NavLinks = ({ mobile = false, onNavLinkClick }: NavLinksProps) => {
   const links = [
     { name: "Home", href: "/", sectionId: "" },
-    { name: "About", href: "/#about", sectionId: "about" },
+    // About link removed
     { name: "Features", href: "/#features", sectionId: "features" },
     { name: "How It Works", href: "/#how-it-works", sectionId: "how-it-works" },
   ];
