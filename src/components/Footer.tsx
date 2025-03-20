@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Twitter, Github, MessageSquare } from "lucide-react";
+import { Twitter, Github } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -29,7 +29,6 @@ const Footer = () => {
               primary
             />
             <SocialLink href="#" icon={<Github className="h-4 w-4" />} />
-            <SocialLink href="#" icon={<MessageSquare className="h-4 w-4" />} />
           </div>
         </div>
         
