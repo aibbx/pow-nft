@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="font-display text-2xl font-bold">
               <span className="text-wealth-gold">Proof</span>
-              <span className="text-black">Of</span>
+              <span className="text-white">of</span>
               <span className="text-wealth-gold">Wealth</span>
             </div>
             <p className="text-sm text-wealth-silver max-w-xs">
