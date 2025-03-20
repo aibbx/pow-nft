@@ -90,10 +90,14 @@ interface EthereumProvider {
   removeListener: (eventName: string, handler: (result: any) => void) => void;
 }
 
-// Fix the interface declaration by using a single global declaration
+// Update the global declaration to use augmentation syntax instead
+// This avoids conflicts with other declarations of Window interface
+interface WindowWithEthereum extends Window {
+  ethereum?: EthereumProvider;
+  okxwallet?: EthereumProvider;
+}
+
 declare global {
-  interface Window {
-    ethereum?: EthereumProvider;
-    okxwallet?: EthereumProvider;
-  }
+  // Use type reference instead of interface extension
+  type Window = WindowWithEthereum;
 }
