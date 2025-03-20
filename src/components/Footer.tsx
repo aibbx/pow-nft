@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Twitter, Github, MessageSquare } from "lucide-react";
@@ -6,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-wealth-dark text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Brand section */}
           <div className="space-y-4">
             <div className="font-display text-2xl font-bold">
@@ -22,44 +23,6 @@ const Footer = () => {
               <SocialLink href="#" icon={<Github className="h-4 w-4" />} />
               <SocialLink href="#" icon={<MessageSquare className="h-4 w-4" />} />
             </div>
-          </div>
-          
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-4 text-wealth-gold">Quick Links</h3>
-            <ul className="space-y-2">
-              {[
-                { name: "Home", href: "/" },
-                { name: "Features", href: "/#features" },
-                { name: "How It Works", href: "/#how-it-works" },
-                { name: "FAQ", href: "/faq" },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link to={link.href} className="text-wealth-silver hover:text-white transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          {/* Resources */}
-          <div>
-            <h3 className="font-bold text-lg mb-4 text-wealth-gold">Resources</h3>
-            <ul className="space-y-2">
-              {[
-                { name: "Documentation", href: "#" },
-                { name: "Whitepaper", href: "#" },
-                { name: "Audit Reports", href: "#" },
-                { name: "Smart Contracts", href: "#" },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link to={link.href} className="text-wealth-silver hover:text-white transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
           
           {/* Contact */}
