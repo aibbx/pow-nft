@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -28,7 +29,7 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
     >
       <div className="space-y-8">
         <motion.div variants={fadeInUp(0.1)}>
-          <span className="inline-block py-2 px-4 mb-4 text-sm font-semibold tracking-wider uppercase bg-wealth-gold/20 text-wealth-gold rounded-full border-2 border-wealth-gold/30 shadow-gold">
+          <span className="inline-block py-2.5 px-5 mb-4 text-sm font-bold tracking-wider uppercase bg-wealth-dark text-wealth-gold rounded-full border-2 border-wealth-gold shadow-premium">
             Exclusive Proof of Wealth Protocol
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">
