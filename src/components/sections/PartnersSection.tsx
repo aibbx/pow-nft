@@ -9,7 +9,7 @@ const PartnersSection = () => {
     { id: 1, number: "1" },
     { id: 2, number: "2" },
     { id: 3, number: "3" },
-    { id: 4 },
+    { id: 4, showComingSoon: false },
     { id: 5 }
   ];
 
@@ -53,7 +53,9 @@ const PartnersSection = () => {
                   <span className="text-wealth-gold text-xs font-bold">{partner.number || "?"}</span>
                 </div>
               </div>
-              <p className="font-medium text-center text-wealth-gold/80">Coming Soon</p>
+              {partner.showComingSoon !== false && (
+                <p className="font-medium text-center text-wealth-gold/80">Coming Soon</p>
+              )}
             </motion.div>
           ))}
         </motion.div>
