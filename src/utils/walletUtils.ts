@@ -90,16 +90,10 @@ interface EthereumProvider {
   removeListener: (eventName: string, handler: (result: any) => void) => void;
 }
 
-// Fix the interface merging issue by using a module declaration instead of global
-declare global {
-  interface Window {
-    okxwallet?: EthereumProvider;
-  }
-}
-
-// Add ethereum to Window using module augmentation to avoid conflicts
+// Combine the interface declarations into a single global declaration
 declare global {
   interface Window {
     ethereum?: EthereumProvider;
+    okxwallet?: EthereumProvider;
   }
 }
