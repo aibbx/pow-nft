@@ -90,7 +90,7 @@ interface EthereumProvider {
   removeListener: (eventName: string, handler: (result: any) => void) => void;
 }
 
-// Combine the interface declarations into a single global declaration
+// Fix the interface declaration by using a single global declaration
 declare global {
   interface Window {
     ethereum?: EthereumProvider;
