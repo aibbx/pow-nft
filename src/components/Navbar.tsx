@@ -18,6 +18,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavLinkClick = (sectionId: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80, // Offset for the fixed navbar
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <header 
       className={cn(
@@ -39,7 +50,7 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <NavLinks />
+          <NavLinks onNavLinkClick={handleNavLinkClick} />
           <WalletConnectButton variant="fancy" />
         </nav>
         
@@ -56,7 +67,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden pt-2 pb-4 px-4 bg-white/95 backdrop-blur-md animate-fade-in">
           <nav className="flex flex-col space-y-4">
-            <NavLinks mobile />
+            <NavLinks mobile onNavLinkClick={handleNavLinkClick} />
             <WalletConnectButton variant="fancy" className="w-full" />
           </nav>
         </div>
@@ -65,27 +76,32 @@ const Navbar = () => {
   );
 };
 
-const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
+interface NavLinksProps {
+  mobile?: boolean;
+  onNavLinkClick: (sectionId: string) => void;
+}
+
+const NavLinks = ({ mobile = false, onNavLinkClick }: NavLinksProps) => {
   const links = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/#about" },
-    { name: "Features", href: "/#features" },
-    { name: "How It Works", href: "/#how-it-works" },
+    { name: "Home", href: "/", sectionId: "" },
+    { name: "About", href: "/#about", sectionId: "about" },
+    { name: "Features", href: "/#features", sectionId: "features" },
+    { name: "How It Works", href: "/#how-it-works", sectionId: "how-it-works" },
   ];
   
   return (
     <>
       {links.map((link) => (
-        <Link
+        <button
           key={link.name}
-          to={link.href}
+          onClick={() => link.sectionId ? onNavLinkClick(link.sectionId) : null}
           className={cn(
-            "font-medium transition-colors hover:text-wealth-gold",
-            mobile ? "text-center py-2" : ""
+            "font-medium transition-colors hover:text-wealth-gold text-left",
+            mobile ? "text-center py-2 w-full" : ""
           )}
         >
           {link.name}
-        </Link>
+        </button>
       ))}
     </>
   );

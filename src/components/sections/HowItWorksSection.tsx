@@ -29,7 +29,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 md:py-32">
+    <section className="py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div 
           className="text-center max-w-3xl mx-auto mb-16"

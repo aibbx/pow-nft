@@ -20,11 +20,20 @@ const Index = () => {
         {/* Hero Section */}
         <Hero onDeposit={() => setDepositModalOpen(true)} />
         
+        {/* About Section - We'll use the hero section as the about section */}
+        <div id="about">
+          {/* This empty div serves as an anchor for the about section */}
+        </div>
+        
         {/* Features Section */}
-        <Features />
+        <div id="features">
+          <Features />
+        </div>
         
         {/* How It Works Section */}
-        <HowItWorksSection />
+        <div id="how-it-works">
+          <HowItWorksSection />
+        </div>
         
         {/* NFT Collection Section */}
         <NFTCollectionSection onDeposit={() => setDepositModalOpen(true)} />
