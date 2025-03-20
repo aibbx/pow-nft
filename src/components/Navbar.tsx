@@ -20,6 +20,16 @@ const Navbar = () => {
 
   const handleNavLinkClick = (sectionId: string) => {
     setIsMobileMenuOpen(false);
+    
+    // If sectionId is empty (Home button), scroll to the top
+    if (!sectionId) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     if (element) {
       window.scrollTo({
@@ -94,7 +104,7 @@ const NavLinks = ({ mobile = false, onNavLinkClick }: NavLinksProps) => {
       {links.map((link) => (
         <button
           key={link.name}
-          onClick={() => link.sectionId ? onNavLinkClick(link.sectionId) : null}
+          onClick={() => onNavLinkClick(link.sectionId)}
           className={cn(
             "font-medium transition-colors hover:text-wealth-gold text-left",
             mobile ? "text-center py-2 w-full" : ""
