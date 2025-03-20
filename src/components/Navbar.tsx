@@ -97,6 +97,7 @@ const NavLinks = ({ mobile = false, onNavLinkClick }: NavLinksProps) => {
     // About link removed
     { name: "Features", href: "/#features", sectionId: "features" },
     { name: "How It Works", href: "/#how-it-works", sectionId: "how-it-works" },
+    { name: "Partners", href: "/#partners", sectionId: "partners" },
   ];
   
   return (

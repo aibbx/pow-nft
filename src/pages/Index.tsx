@@ -6,6 +6,7 @@ import Features from '@/components/Features';
 import Footer from '@/components/Footer';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import NFTCollectionSection from '@/components/sections/NFTCollectionSection';
+import PartnersSection from '@/components/sections/PartnersSection';
 import CTASection from '@/components/sections/CTASection';
 import DepositModal from '@/components/DepositModal';
 
@@ -38,6 +39,11 @@ const Index = () => {
         {/* NFT Collection Section */}
         <div id="nft-collection">
           <NFTCollectionSection onDeposit={() => setDepositModalOpen(true)} />
+        </div>
+        
+        {/* Partners Section */}
+        <div id="partners">
+          <PartnersSection />
         </div>
         
         {/* CTA Section */}
