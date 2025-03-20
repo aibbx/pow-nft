@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { Link } from "react-router-dom";
 import { X, Github } from "lucide-react";
 
 const Footer = () => {
@@ -37,13 +35,9 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Bottom section */}
+        {/* Bottom section - removed Terms of Service and Privacy Policy links */}
         <div className="border-t border-wealth-silver/20 pt-8 mt-8 text-center text-sm text-wealth-silver">
           <p>© {new Date().getFullYear()} Proof Of Wealth. All rights reserved.</p>
-          <div className="flex justify-center space-x-6 mt-4">
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-          </div>
         </div>
       </div>
     </footer>
