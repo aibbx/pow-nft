@@ -96,7 +96,7 @@ const DepositAmountStep = ({
           <div className="text-sm">
             <p className="font-medium mb-1">Your deposit will be used to mint an NFT</p>
             <p className="text-wealth-muted">
-              Your USDT will be securely stored and can be withdrawn at any time by burning your NFT.
+              Your USDT will be securely stored and your wealth status NFT will be minted.
             </p>
           </div>
         </div>
