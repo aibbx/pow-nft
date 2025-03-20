@@ -10,6 +10,16 @@ interface HeroLeftColumnProps {
 }
 
 const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
+  const handleBrowseCollection = () => {
+    const nftCollectionSection = document.getElementById('nft-collection');
+    if (nftCollectionSection) {
+      window.scrollTo({
+        top: nftCollectionSection.offsetTop - 80, // Offset for the fixed navbar
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <motion.div 
       className="flex flex-col justify-center"
@@ -53,6 +63,7 @@ const HeroLeftColumn: React.FC<HeroLeftColumnProps> = ({ onDeposit }) => {
             size="lg" 
             variant="outline" 
             className="border-wealth-gold/30 text-wealth-dark hover:bg-wealth-gold/5"
+            onClick={handleBrowseCollection}
           >
             Browse Collection
           </Button>

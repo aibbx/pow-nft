@@ -36,7 +36,9 @@ const Index = () => {
         </div>
         
         {/* NFT Collection Section */}
-        <NFTCollectionSection onDeposit={() => setDepositModalOpen(true)} />
+        <div id="nft-collection">
+          <NFTCollectionSection onDeposit={() => setDepositModalOpen(true)} />
+        </div>
         
         {/* CTA Section */}
         <CTASection onDeposit={() => setDepositModalOpen(true)} />
