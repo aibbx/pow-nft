@@ -23,13 +23,13 @@ const Footer = () => {
           {/* Social Links - Now on the right, stacked vertically */}
           <div className="flex flex-col space-y-3">
             <SocialLink 
-              href="https://twitter.com" 
+              href="https://twitter.com/PoWProtocol" 
               icon={<X className="h-4 w-4" />} 
               label="Contact on X"
               primary
             />
             <SocialLink 
-              href="#" 
+              href="https://github.com/aibbx/pow-nft.git" 
               icon={<Github className="h-4 w-4" />} 
               label="Check on GitHub"
               primary
