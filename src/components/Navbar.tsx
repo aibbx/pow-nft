@@ -53,8 +53,8 @@ const Navbar = () => {
         >
           <div className="font-display text-2xl font-bold">
             <span className="text-wealth-gold">Proof</span>
-            <span className="text-black font-medium">of</span>
-            <span className="text-wealth-gold font-extrabold text-[1.75rem] tracking-tight drop-shadow-md">Wealth</span>
+            <span className="text-black">of</span>
+            <span className="text-wealth-gold">Wealth</span>
           </div>
         </Link>
         
