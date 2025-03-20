@@ -20,15 +20,20 @@ const Footer = () => {
             </p>
           </div>
           
-          {/* Social Links - Now on the right */}
-          <div className="flex items-center space-x-4">
+          {/* Social Links - Now on the right, stacked vertically */}
+          <div className="flex flex-col space-y-3">
             <SocialLink 
               href="https://twitter.com" 
               icon={<X className="h-4 w-4" />} 
               label="Contact on X"
               primary
             />
-            <SocialLink href="#" icon={<Github className="h-4 w-4" />} />
+            <SocialLink 
+              href="#" 
+              icon={<Github className="h-4 w-4" />} 
+              label="Check on GitHub"
+              primary
+            />
           </div>
         </div>
         
