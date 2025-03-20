@@ -4,13 +4,11 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from '@/utils/animation';
 
 const PartnersSection = () => {
-  // Using placeholders instead of actual partner names
+  // Using placeholders for the first three partners, removing the fourth
   const partners = [
     { id: 1, number: "1" },
     { id: 2, number: "2" },
-    { id: 3, number: "3" },
-    { id: 4, showComingSoon: false },
-    { id: 5 }
+    { id: 3, number: "3" }
   ];
 
   return (
@@ -35,7 +33,7 @@ const PartnersSection = () => {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-4xl mx-auto"
           variants={staggerContainer(0.1, 0.2)}
           initial="initial"
           whileInView="animate"
@@ -50,12 +48,10 @@ const PartnersSection = () => {
               <div className="bg-white/5 p-6 rounded-xl hover:bg-wealth-gold/10 transition-colors duration-300 w-full flex items-center justify-center h-24 relative overflow-hidden">
                 <div className="absolute inset-0 shimmer"></div>
                 <div className="w-10 h-10 rounded-full bg-wealth-gold/20 flex items-center justify-center">
-                  <span className="text-wealth-gold text-xs font-bold">{partner.number || "?"}</span>
+                  <span className="text-wealth-gold text-xs font-bold">{partner.number}</span>
                 </div>
               </div>
-              {partner.showComingSoon !== false && (
-                <p className="font-medium text-center text-wealth-gold/80">Coming Soon</p>
-              )}
+              <p className="font-medium text-center text-wealth-gold/80">Coming Soon</p>
             </motion.div>
           ))}
         </motion.div>
